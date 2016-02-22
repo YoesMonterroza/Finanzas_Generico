@@ -10,27 +10,18 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
-using Finanzas_Generico.Vistas;
 
-namespace Finanzas_Generico
+namespace Finanzas_Generico.Vistas
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for VentanaInicio.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class VentanaInicio : Window
     {
-        public MainWindow()
+        public VentanaInicio()
         {
             InitializeComponent();
-        }
-
-        private void btnLoguin_Click(object sender, RoutedEventArgs e)
-        {
-            this.Hide();
-            VentanaInicio vi = new VentanaInicio();
-            vi.ShowDialog();
         }
     }
 }

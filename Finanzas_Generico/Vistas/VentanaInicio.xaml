@@ -1,0 +1,29 @@
+﻿<Window x:Class="Finanzas_Generico.Vistas.VentanaInicio"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Finanzas_Generico.Vistas"
+        mc:Ignorable="d"
+        Title="VentanaInicio" Height="500" Width="500">
+    <Grid>
+        <Menu Height="25" Margin="0,0,0,445">            
+            <MenuItem Header="Producto">
+                <MenuItem Header="Agregar Producto" Name="miAgregarProducto"></MenuItem>
+                <MenuItem Header="Actualizar Producto" Name="miActualizarProducto"></MenuItem>
+                <MenuItem Header="Lista Productos" Name="miListaProductos"></MenuItem>
+            </MenuItem>
+            <MenuItem Header="Cliente">
+                <MenuItem Header="Agregar" Name="miAgregarCliente"></MenuItem>
+                <MenuItem Header="Actualizar" Name="miActualizarCliente"></MenuItem>
+            </MenuItem>
+            <MenuItem Header="Factura" VerticalAlignment="Top">
+                <MenuItem Header="Generar Factura" Name="miGenerarFactura"></MenuItem>
+                <MenuItem Header="Consultar Factura" Name="miConsultarFactura"></MenuItem>
+                <MenuItem Header="Generar Abonos" Name="miGenerarAbono"></MenuItem>
+                <MenuItem Header="Consultar Abonos" Name="miConsultarAbono"></MenuItem>
+            </MenuItem>
+            <MenuItem Header="Cerrar sesión"></MenuItem>
+        </Menu>        
+    </Grid>
+</Window>
