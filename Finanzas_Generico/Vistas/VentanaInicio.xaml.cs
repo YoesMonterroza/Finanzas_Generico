@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using Finanzas_Generico.Conexion;
 
 namespace Finanzas_Generico.Vistas
 {
@@ -22,6 +23,12 @@ namespace Finanzas_Generico.Vistas
         public VentanaInicio()
         {
             InitializeComponent();
+        }
+
+        private void conectar_Click(object sender, RoutedEventArgs e)
+        {
+            ConexionDB cp = new ConexionDB();
+            
         }
     }
 }
