@@ -9,12 +9,12 @@
     <Grid>
         <Menu Height="25" Margin="0,0,0,445">            
             <MenuItem Header="Producto">
-                <MenuItem Header="Agregar Producto" Name="miAgregarProducto"></MenuItem>
-                <MenuItem Header="Actualizar Producto" Name="miActualizarProducto"></MenuItem>
+                <MenuItem Header="Ingresar Producto" Name="miAgregarProducto" Click="miAgregarProducto_Click"></MenuItem>
+                <MenuItem Header="Actualizar Producto" Name="miActualizarProducto" Click="miActualizarProducto_Click"></MenuItem>
                 <MenuItem Header="Lista Productos" Name="miListaProductos"></MenuItem>
             </MenuItem>
             <MenuItem Header="Cliente">
-                <MenuItem Header="Agregar" Name="miAgregarCliente"></MenuItem>
+                <MenuItem Header="Ingresar" Name="miAgregarCliente"></MenuItem>
                 <MenuItem Header="Actualizar" Name="miActualizarCliente"></MenuItem>
             </MenuItem>
             <MenuItem Header="Factura" VerticalAlignment="Top">
@@ -23,7 +23,7 @@
                 <MenuItem Header="Generar Abonos" Name="miGenerarAbono"></MenuItem>
                 <MenuItem Header="Consultar Abonos" Name="miConsultarAbono"></MenuItem>
             </MenuItem>
-            <MenuItem Header="Cerrar sesión"></MenuItem>
+            <MenuItem x:Name="CerrarSesion" Header="Cerrar sesión" Click="CerrarSesion_Click"></MenuItem>
         </Menu>
         <Button x:Name="conectar" Content="conectar" HorizontalAlignment="Left" Margin="96,88,0,0" VerticalAlignment="Top" Width="75" Click="conectar_Click"/>
     </Grid>

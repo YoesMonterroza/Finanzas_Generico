@@ -58,9 +58,17 @@
     </ApplicationDefinition>
     <Compile Include="Conexion\ConexionDB.cs" />
     <Compile Include="Entidades\Persona.cs" />
+    <Compile Include="Entidades\Producto.cs" />
     <Compile Include="Entidades\Usuario.cs" />
     <Compile Include="Manager\AdministrarPersona.cs" />
+    <Compile Include="Manager\AdministrarProducto.cs" />
     <Compile Include="Manager\AdministrarUsuario.cs" />
+    <Compile Include="Vistas\ActualizarProducto.xaml.cs">
+      <DependentUpon>ActualizarProducto.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Vistas\IngresarProducto.xaml.cs">
+      <DependentUpon>IngresarProducto.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Vistas\VentanaInicio.xaml.cs">
       <DependentUpon>VentanaInicio.xaml</DependentUpon>
     </Compile>
@@ -76,6 +84,14 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Vistas\ActualizarProducto.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Vistas\IngresarProducto.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Vistas\VentanaInicio.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

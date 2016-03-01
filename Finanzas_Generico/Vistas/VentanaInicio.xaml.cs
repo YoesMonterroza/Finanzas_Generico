@@ -27,8 +27,27 @@ namespace Finanzas_Generico.Vistas
 
         private void conectar_Click(object sender, RoutedEventArgs e)
         {
-            ConexionDB cp = new ConexionDB();
+            //ConexionDB cp = new ConexionDB();
             
+        }
+
+        private void miAgregarProducto_Click(object sender, RoutedEventArgs e)
+        {
+            IngresarProducto ip = new IngresarProducto();
+            ip.Owner = this;
+            ip.ShowDialog();
+        }
+
+        private void CerrarSesion_Click(object sender, RoutedEventArgs e)
+        {
+            this.Hide();
+        }
+
+        private void miActualizarProducto_Click(object sender, RoutedEventArgs e)
+        {
+            ActualizarProducto ap = new ActualizarProducto();
+            ap.Owner = this;
+            ap.ShowDialog();
         }
     }
 }
