@@ -33,6 +33,7 @@ namespace Finanzas_Generico.Manager
                     cmd.Parameters.AddWithValue("p_cantidad", pr.cantidad);
                     cmd.Parameters.AddWithValue("p_cantidadMinima", pr.cantidadMinima);
                     cmd.Parameters.AddWithValue("p_precio", pr.precio);
+                    cmd.Parameters.AddWithValue("p_estado", pr.estado);
                     cmd.Parameters.AddWithValue("p_usuarioModifica", pr.usuarioModifica);
 
                     //abrir la conexion
@@ -56,8 +57,9 @@ namespace Finanzas_Generico.Manager
             return binario;
         } // end GuardarHuella
 
-        public DataTable ConsultarProducto(String sCodigo)
+        public Producto ConsultarProducto(String sCodigo)
         {
+            Producto pr = new Producto();
             using (MySqlCommand cmd = new MySqlCommand())
             {
                 try
@@ -79,16 +81,20 @@ namespace Finanzas_Generico.Manager
 
                     //String nombre;
                     //nombre = Convert.ToString(lectorProductos["nombre"]);
+                    
                     if (lectorProductos.HasRows)
                     {
                         while (lectorProductos.Read())
                         {
-                            String nombre;
-                            nombre = Convert.ToString(lectorProductos["nombre"]);
+                            pr.codigo = Convert.ToString(lectorProductos["codigo"]);
+                            pr.nombre = Convert.ToString(lectorProductos["nombre"]);
+                            pr.cantidad = Convert.ToInt32(lectorProductos["cantidad"]);
+                            pr.cantidadMinima = Convert.ToInt32(lectorProductos["cantidadMinima"]);
+                            pr.precio = Convert.ToDecimal(lectorProductos["precio"]);
+                            pr.estado = Convert.ToString(lectorProductos["estado"]);
+                            pr.usuarioModifica = Convert.ToInt32(lectorProductos["usuarioModifica"]);
                         }
-                    }
-
-                    
+                    }                    
                 }
                 catch (MySqlException ex)
                 {
@@ -100,7 +106,7 @@ namespace Finanzas_Generico.Manager
                 }
             }
 
-                return dTable;
+            return pr;
         }
     }
 }

@@ -14,8 +14,8 @@
                 <MenuItem Header="Lista Productos" Name="miListaProductos"></MenuItem>
             </MenuItem>
             <MenuItem Header="Cliente">
-                <MenuItem Header="Ingresar" Name="miAgregarCliente"></MenuItem>
-                <MenuItem Header="Actualizar" Name="miActualizarCliente"></MenuItem>
+                <MenuItem Header="Ingresar" Name="miAgregarCliente" Click="miAgregarCliente_Click"></MenuItem>
+                <MenuItem Header="Actualizar" Name="miActualizarCliente" Click="miActualizarCliente_Click"></MenuItem>
             </MenuItem>
             <MenuItem Header="Factura" VerticalAlignment="Top">
                 <MenuItem Header="Generar Factura" Name="miGenerarFactura"></MenuItem>

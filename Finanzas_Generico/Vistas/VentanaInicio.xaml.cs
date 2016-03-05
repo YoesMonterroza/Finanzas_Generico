@@ -49,5 +49,19 @@ namespace Finanzas_Generico.Vistas
             ap.Owner = this;
             ap.ShowDialog();
         }
+
+        private void miActualizarCliente_Click(object sender, RoutedEventArgs e)
+        {
+            ActualizarCliente ac = new ActualizarCliente();
+            ac.Owner = this;
+            ac.ShowDialog();
+        }
+
+        private void miAgregarCliente_Click(object sender, RoutedEventArgs e)
+        {
+            IngresarCliente ic = new IngresarCliente();
+            ic.Owner = this;
+            ic.ShowDialog();
+        }
     }
 }

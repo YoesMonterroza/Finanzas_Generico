@@ -63,8 +63,14 @@
     <Compile Include="Manager\AdministrarPersona.cs" />
     <Compile Include="Manager\AdministrarProducto.cs" />
     <Compile Include="Manager\AdministrarUsuario.cs" />
+    <Compile Include="Vistas\ActualizarCliente.xaml.cs">
+      <DependentUpon>ActualizarCliente.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Vistas\ActualizarProducto.xaml.cs">
       <DependentUpon>ActualizarProducto.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Vistas\IngresarCliente.xaml.cs">
+      <DependentUpon>IngresarCliente.xaml</DependentUpon>
     </Compile>
     <Compile Include="Vistas\IngresarProducto.xaml.cs">
       <DependentUpon>IngresarProducto.xaml</DependentUpon>
@@ -84,7 +90,15 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Vistas\ActualizarCliente.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Vistas\ActualizarProducto.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Vistas\IngresarCliente.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

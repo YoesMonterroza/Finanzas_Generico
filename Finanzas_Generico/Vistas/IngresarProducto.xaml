@@ -21,10 +21,15 @@
         <TextBox x:Name="txt_Cantidad" HorizontalAlignment="Left" Height="23" Margin="141,110,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Grid.ColumnSpan="2"/>
         <TextBox x:Name="txt_CantidadMinima" HorizontalAlignment="Left" Height="23" Margin="141,141,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" RenderTransformOrigin="0.458,-0.609" Grid.ColumnSpan="2"/>
         <TextBox x:Name="txt_Precio" HorizontalAlignment="Left" Height="23" Margin="141,172,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Grid.ColumnSpan="2"/>
-        <Button x:Name="GuardarProducto" Content="Guardar" Margin="10,215,143,0" VerticalAlignment="Top" Click="GuardarProducto_Click"/>
-        <Button x:Name="Nuevo" Content="Cancelar" HorizontalAlignment="Left" Margin="99,215,0,0" VerticalAlignment="Top" Width="75" Click="Cancelar_Click"/>
+        <Button x:Name="GuardarProducto" Content="Guardar" Margin="10,233,143,0" VerticalAlignment="Top" Click="GuardarProducto_Click"/>
+        <Button x:Name="Nuevo" Content="Cancelar" HorizontalAlignment="Left" Margin="99,233,0,0" VerticalAlignment="Top" Width="75" Click="Cancelar_Click"/>
         <Label x:Name="label1" Content="Igresar producto" HorizontalAlignment="Left" Margin="89,10,0,0" VerticalAlignment="Top"/>
-        <Button x:Name="Salir" Grid.ColumnSpan="2" Content="Salir" HorizontalAlignment="Left" Margin="186,215,0,0" VerticalAlignment="Top" Width="75" Click="Salir_Click"/>
+        <Button x:Name="Salir" Grid.ColumnSpan="2" Content="Salir" HorizontalAlignment="Left" Margin="186,233,0,0" VerticalAlignment="Top" Width="75" Click="Salir_Click"/>
+        <Label x:Name="label_Copy4" Content="Estado" HorizontalAlignment="Left" Margin="10,200,0,0" VerticalAlignment="Top"/>
+        <ComboBox x:Name="cb_Estado" Grid.ColumnSpan="2" HorizontalAlignment="Left" Margin="141,203,0,0" VerticalAlignment="Top" Width="120">
+            <ComboBoxItem Name="cbi_Actino" Content="Activo"/>
+            <ComboBoxItem Name="cbi_NoActivo" Content="No activo"/>
+        </ComboBox>
 
     </Grid>
 </Window>
