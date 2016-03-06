@@ -55,7 +55,7 @@ namespace Finanzas_Generico.Manager
                 } // end try
             } // end using
             return binario;
-        } // end GuardarHuella
+        } // end InsertarUsuario
 
         public Producto ConsultarProducto(String sCodigo)
         {
@@ -92,6 +92,7 @@ namespace Finanzas_Generico.Manager
                             pr.cantidadMinima = Convert.ToInt32(lectorProductos["cantidadMinima"]);
                             pr.precio = Convert.ToDecimal(lectorProductos["precio"]);
                             pr.estado = Convert.ToString(lectorProductos["estado"]);
+                            pr.descripcion = Convert.ToString(lectorProductos["descripcion"]);
                             pr.usuarioModifica = Convert.ToInt32(lectorProductos["usuarioModifica"]);
                         }
                     }                    
@@ -108,5 +109,48 @@ namespace Finanzas_Generico.Manager
 
             return pr;
         }
+
+        public static int ActualizarUsuario(Producto pr)
+        {
+            int binario = 0;
+            using (MySqlCommand cmd = new MySqlCommand())
+            {
+                try
+                {
+                    // setear parametros del command
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Connection = ConexionDB.Conexion();
+                    cmd.CommandText = "SpProductoActualizar";
+
+                    //asignar paramentros
+                    cmd.Parameters.AddWithValue("p_codigo", pr.codigo);
+                    cmd.Parameters.AddWithValue("p_nombre", pr.nombre);
+                    cmd.Parameters.AddWithValue("p_cantidad", pr.cantidad);
+                    cmd.Parameters.AddWithValue("p_cantidadMinima", pr.cantidadMinima);
+                    cmd.Parameters.AddWithValue("p_precio", pr.precio);
+                    cmd.Parameters.AddWithValue("p_estado", pr.estado);
+                    cmd.Parameters.AddWithValue("p_descripcion", pr.descripcion);
+                    cmd.Parameters.AddWithValue("p_usuarioModifica", pr.usuarioModifica);
+
+                    //abrir la conexion
+                    ConexionDB.Conexion().Open();
+
+                    //ejecutar el query
+                    cmd.ExecuteNonQuery();
+
+                    binario = 1;
+                }
+                catch (MySqlException ex)
+                {
+                    binario = 0;
+                    throw ex;
+                }
+                finally
+                {
+                    ConexionDB.Conexion().Close();
+                } // end try
+            } // end using
+            return binario;
+        } // end GuardarHuella
     }
 }

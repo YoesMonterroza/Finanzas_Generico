@@ -5,31 +5,33 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Finanzas_Generico.Vistas"
         mc:Ignorable="d"
-        Title="IngresarProducto" Height="300" Width="300">
+        Title="IngresarProducto" Height="400" Width="300">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="57*"/>
             <ColumnDefinition Width="16*"/>
         </Grid.ColumnDefinitions>
-        <Label x:Name="label" Content="Codigo" HorizontalAlignment="Left" Margin="10,45,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="label_Copy" Content="Nombre" HorizontalAlignment="Left" Margin="10,76,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.5,1.731"/>
-        <Label x:Name="label_Copy1" Content="Cantidad" HorizontalAlignment="Left" Margin="10,107,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="label_Copy2" Content="Cantidad minima" HorizontalAlignment="Left" Margin="10,138,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="label_Copy3" Content="Precio" HorizontalAlignment="Left" Margin="10,169,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="txt_Codigo" HorizontalAlignment="Left" Height="23" Margin="141,47,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Grid.ColumnSpan="2"/>
-        <TextBox x:Name="txt_Nombre" HorizontalAlignment="Left" Height="23" Margin="141,79,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Grid.ColumnSpan="2"/>
-        <TextBox x:Name="txt_Cantidad" HorizontalAlignment="Left" Height="23" Margin="141,110,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Grid.ColumnSpan="2"/>
-        <TextBox x:Name="txt_CantidadMinima" HorizontalAlignment="Left" Height="23" Margin="141,141,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" RenderTransformOrigin="0.458,-0.609" Grid.ColumnSpan="2"/>
-        <TextBox x:Name="txt_Precio" HorizontalAlignment="Left" Height="23" Margin="141,172,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Grid.ColumnSpan="2"/>
-        <Button x:Name="GuardarProducto" Content="Guardar" Margin="10,233,143,0" VerticalAlignment="Top" Click="GuardarProducto_Click"/>
-        <Button x:Name="Nuevo" Content="Cancelar" HorizontalAlignment="Left" Margin="99,233,0,0" VerticalAlignment="Top" Width="75" Click="Cancelar_Click"/>
-        <Label x:Name="label1" Content="Igresar producto" HorizontalAlignment="Left" Margin="89,10,0,0" VerticalAlignment="Top"/>
-        <Button x:Name="Salir" Grid.ColumnSpan="2" Content="Salir" HorizontalAlignment="Left" Margin="186,233,0,0" VerticalAlignment="Top" Width="75" Click="Salir_Click"/>
-        <Label x:Name="label_Copy4" Content="Estado" HorizontalAlignment="Left" Margin="10,200,0,0" VerticalAlignment="Top"/>
-        <ComboBox x:Name="cb_Estado" Grid.ColumnSpan="2" HorizontalAlignment="Left" Margin="141,203,0,0" VerticalAlignment="Top" Width="120">
+        <Label x:Name="label" Content="Codigo" HorizontalAlignment="Left" Margin="19,45,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="label_Copy" Content="Nombre" HorizontalAlignment="Left" Margin="19,76,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.5,1.731"/>
+        <Label x:Name="label_Copy1" Content="Cantidad" HorizontalAlignment="Left" Margin="19,107,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="label_Copy2" Content="Cantidad minima" HorizontalAlignment="Left" Margin="19,138,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="label_Copy3" Content="Precio" HorizontalAlignment="Left" Margin="19,169,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="txt_Codigo" HorizontalAlignment="Left" Height="23" Margin="150,47,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Grid.ColumnSpan="2"/>
+        <TextBox x:Name="txt_Nombre" HorizontalAlignment="Left" Height="23" Margin="150,79,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Grid.ColumnSpan="2"/>
+        <TextBox x:Name="txt_Cantidad" HorizontalAlignment="Left" Height="23" Margin="150,110,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Grid.ColumnSpan="2"/>
+        <TextBox x:Name="txt_CantidadMinima" HorizontalAlignment="Left" Height="23" Margin="150,141,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" RenderTransformOrigin="0.458,-0.609" Grid.ColumnSpan="2"/>
+        <TextBox x:Name="txt_Precio" HorizontalAlignment="Left" Height="23" Margin="150,172,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Grid.ColumnSpan="2"/>
+        <Button x:Name="GuardarProducto" Content="Guardar" Margin="19,338,134,0" VerticalAlignment="Top" Click="GuardarProducto_Click"/>
+        <Button x:Name="Nuevo" Content="Cancelar" HorizontalAlignment="Left" Margin="108,338,0,0" VerticalAlignment="Top" Width="75" Click="Cancelar_Click"/>
+        <Label x:Name="label1" Content="Igresar producto" HorizontalAlignment="Left" Margin="97,10,0,0" VerticalAlignment="Top"/>
+        <Button x:Name="Salir" Grid.ColumnSpan="2" Content="Salir" HorizontalAlignment="Left" Margin="195,338,0,0" VerticalAlignment="Top" Width="75" Click="Salir_Click"/>
+        <Label x:Name="label_Copy4" Content="Estado" HorizontalAlignment="Left" Margin="19,200,0,0" VerticalAlignment="Top"/>
+        <ComboBox x:Name="cb_Estado" Grid.ColumnSpan="2" HorizontalAlignment="Left" Margin="150,203,0,0" VerticalAlignment="Top" Width="120">
             <ComboBoxItem Name="cbi_Actino" Content="Activo"/>
             <ComboBoxItem Name="cbi_NoActivo" Content="No activo"/>
         </ComboBox>
+        <Label x:Name="lbl_descripcion" Content="Descripción" HorizontalAlignment="Left" Margin="21,231,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.421,0.577"/>
+        <TextBox x:Name="txt_descripcion" HorizontalAlignment="Left" Height="71" Margin="21,262,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="249" Grid.ColumnSpan="2"/>
 
     </Grid>
 </Window>

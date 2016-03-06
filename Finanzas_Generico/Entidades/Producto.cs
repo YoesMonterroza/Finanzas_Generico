@@ -15,6 +15,7 @@ namespace Finanzas_Generico.Entidades
         public Int32 cantidadMinima { get; set; }
         public Decimal precio { get; set; }
         public String estado { get; set; }
+        public String descripcion { get; set; }
         public DateTime fechaIngreso { get; set; }
         public DateTime fechaModificacion { get; set; }
         public Int32 usuarioModifica { get; set; }

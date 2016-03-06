@@ -37,6 +37,7 @@ namespace Finanzas_Generico.Vistas
             p.cantidadMinima = Int32.Parse(txt_CantidadMinima.Text);
             p.precio = Decimal.Parse(txt_Precio.Text);
             p.estado = Convert.ToString(cb_Estado.SelectedIndex);
+            p.descripcion = txt_descripcion.Text;
             p.usuarioModifica = 0;
             capturarBinario = AdministrarProducto.InsertarUsuario(p);
             LimpiarCampos();
@@ -55,8 +56,9 @@ namespace Finanzas_Generico.Vistas
             txt_Cantidad.Text = "";
             txt_CantidadMinima.Text = "";
             txt_Precio.Text = "";
-            txt_Codigo.Focus();
+            txt_descripcion.Text = "";
             cb_Estado.SelectedIndex = -1;
+            txt_Codigo.Focus();
         }
 
         private void Cancelar_Click(object sender, RoutedEventArgs e)

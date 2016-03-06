@@ -37,7 +37,7 @@ namespace Finanzas_Generico.Vistas
             txt_CantidadMinima.Text = Convert.ToString(pr.cantidadMinima);
             txt_Precio.Text = Convert.ToString(pr.precio);
             cb_Estado.SelectedIndex = Convert.ToInt32(pr.estado);
-
+            txt_descripcion.Text = Convert.ToString(pr.descripcion);
             txt_CodProducto.IsEnabled = false;
             ConsultarProducto.IsEnabled = false;
         }
@@ -67,7 +67,24 @@ namespace Finanzas_Generico.Vistas
 
         private void btn_Actualizar_Click(object sender, RoutedEventArgs e)
         {
+            int capturarBinario;
+            Producto p = new Producto();
+            p.codigo = txt_CodProducto.Text;
+            p.nombre = txt_Nombre.Text;
+            p.cantidad = Int32.Parse(txt_Cantidad.Text);
+            p.cantidadMinima = Int32.Parse(txt_CantidadMinima.Text);
+            p.precio = Decimal.Parse(txt_Precio.Text);
+            p.estado = Convert.ToString(cb_Estado.SelectedIndex);
+            p.descripcion = txt_descripcion.Text;
+            p.usuarioModifica = 0;
+            capturarBinario = AdministrarProducto.ActualizarUsuario(p);
             LimpiarCampos();
+
+            if (capturarBinario == 1)
+                MessageBox.Show("Producto actualizado.");
+            else
+                MessageBox.Show("Error al actualizar");
         }
+        
     }
 }
