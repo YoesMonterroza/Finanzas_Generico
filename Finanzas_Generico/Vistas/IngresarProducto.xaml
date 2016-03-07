@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Finanzas_Generico.Vistas"
         mc:Ignorable="d"
-        Title="IngresarProducto" Height="400" Width="300">
+        Title="Ingresar Producto" Height="400" Width="300" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" Icon="/Finanzas_Generico;component/Imagenes/Iconos/IconoLibro1.png">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="57*"/>

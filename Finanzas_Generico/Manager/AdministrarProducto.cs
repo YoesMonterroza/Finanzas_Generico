@@ -12,7 +12,7 @@ namespace Finanzas_Generico.Manager
 {
     public class AdministrarProducto
     {
-        private MySqlDataAdapter da;
+        //private MySqlDataAdapter da;
         public DataTable dTable { get; set; }
 
         public static int InsertarUsuario(Producto pr)

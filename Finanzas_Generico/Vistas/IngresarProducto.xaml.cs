@@ -25,6 +25,7 @@ namespace Finanzas_Generico.Vistas
         {
             InitializeComponent();
             txt_Codigo.Focus();
+            cb_Estado.SelectedIndex = 0;
         }
 
         private void GuardarProducto_Click(object sender, RoutedEventArgs e)
@@ -58,6 +59,7 @@ namespace Finanzas_Generico.Vistas
             txt_Precio.Text = "";
             txt_descripcion.Text = "";
             cb_Estado.SelectedIndex = -1;
+            cb_Estado.SelectedIndex = 0;
             txt_Codigo.Focus();
         }
 

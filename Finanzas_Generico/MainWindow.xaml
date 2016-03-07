@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Finanzas_Generico"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
+        Title="Iniciar sesión" Height="350" Width="525" Icon="Imagenes/Iconos/IconoLibro1.png" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
     <Grid>
         <Label x:Name="label" Content="Usuario" HorizontalAlignment="Left" Margin="134,65,0,0" VerticalAlignment="Top"/>
         <TextBox x:Name="txtUsuario" HorizontalAlignment="Left" Height="23" Margin="259,68,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" RenderTransformOrigin="0.483,0.522"/>

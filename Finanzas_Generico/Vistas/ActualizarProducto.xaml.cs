@@ -57,6 +57,7 @@ namespace Finanzas_Generico.Vistas
             txt_Precio.Text = "";
             cb_Estado.SelectedIndex = -1;
             txt_CodProducto.IsEnabled = true;
+            txt_descripcion.Text = "";
             ConsultarProducto.IsEnabled = true;
         }
 
@@ -78,12 +79,15 @@ namespace Finanzas_Generico.Vistas
             p.descripcion = txt_descripcion.Text;
             p.usuarioModifica = 0;
             capturarBinario = AdministrarProducto.ActualizarUsuario(p);
-            LimpiarCampos();
+            
 
-            if (capturarBinario == 1)
+            if (capturarBinario == 1){
+                LimpiarCampos();
                 MessageBox.Show("Producto actualizado.");
-            else
+            }
+            else { 
                 MessageBox.Show("Error al actualizar");
+            }
         }
         
     }

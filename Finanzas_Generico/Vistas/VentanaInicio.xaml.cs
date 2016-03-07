@@ -24,13 +24,7 @@ namespace Finanzas_Generico.Vistas
         {
             InitializeComponent();
         }
-
-        private void conectar_Click(object sender, RoutedEventArgs e)
-        {
-            //ConexionDB cp = new ConexionDB();
-            
-        }
-
+        
         private void miAgregarProducto_Click(object sender, RoutedEventArgs e)
         {
             IngresarProducto ip = new IngresarProducto();

@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Finanzas_Generico.Vistas"
         mc:Ignorable="d"
-        Title="ActualizarProducto" Height="400" Width="310">
+        Title="Actualizar Producto" Height="400" Width="310" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" ShowInTaskbar="False" Icon="/Finanzas_Generico;component/Imagenes/Iconos/IconoLibro1.png">
     <Grid>
         <Label x:Name="label" Content="Codigo" HorizontalAlignment="Left" Margin="20,30,0,0" VerticalAlignment="Top"/>
         <TextBox x:Name="txt_CodProducto" HorizontalAlignment="Left" Height="23" Margin="81,32,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
