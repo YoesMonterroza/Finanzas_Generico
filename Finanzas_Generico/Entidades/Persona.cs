@@ -21,4 +21,14 @@ namespace Finanzas_Generico.Entidades
         public DateTime fechaModificacion { get; set; }
         public Int32 usuarioModifica { get; set; }
     }
+
+    public class ListaPersona
+    {
+        public String Identificación { get; set; }
+        public String Nombre { get; set; }
+        public String Telefono { get; set; }
+        public String Correo { get; set; }
+        public String Dirección { get; set; }
+        public String Observaciones { get; set; }
+    }
 }

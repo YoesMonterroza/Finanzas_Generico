@@ -58,8 +58,7 @@ namespace Finanzas_Generico.Manager
             } // end using
             return binario;
         } // end InsertarUsuario
-
-
+        
         public Persona ConsultarPersona(String sIdentificacion)
         {
             Persona per = new Persona();
@@ -149,5 +148,51 @@ namespace Finanzas_Generico.Manager
             } // end using
             return binario;
         } // fin ActualizarUsuario
+
+        public static List<ListaPersona> ListaPersonas()
+        {
+            //Producto pr = new Producto();
+            ListaPersona lPer;
+            List<ListaPersona> listPer = new List<ListaPersona>();
+            using (MySqlCommand cmd = new MySqlCommand())
+            {
+                try
+                {
+                    ConexionDB.Conexion().Open();
+
+                    // setear parametros del command
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Connection = ConexionDB.Conexion();
+                    cmd.CommandText = "SpPersonaListar";
+
+                    MySqlDataReader lectorProductos;
+                    lectorProductos = cmd.ExecuteReader();
+
+                    if (lectorProductos.HasRows)
+                    {
+                        while (lectorProductos.Read())
+                        {
+                            lPer = new ListaPersona();
+                            lPer.Identificación = Convert.ToString(lectorProductos["identificacion"]);
+                            lPer.Nombre = Convert.ToString(lectorProductos["nombres"]) + " " + Convert.ToString(lectorProductos["apellidos"]);
+                            lPer.Telefono = Convert.ToString(lectorProductos["telefono"]);
+                            lPer.Correo = Convert.ToString(lectorProductos["correo"]);
+                            lPer.Dirección = Convert.ToString(lectorProductos["direccion"]);
+                            lPer.Observaciones = Convert.ToString(lectorProductos["observaciones"]);
+                            listPer.Add(lPer);
+                        }
+                    }
+                }
+                catch (MySqlException ex)
+                {
+                    throw ex;
+                }
+                finally
+                {
+                    ConexionDB.Conexion().Close();
+                }
+            }
+            return listPer;
+        }
     }
 }

@@ -22,7 +22,6 @@ namespace Finanzas_Generico.Vistas
     /// </summary>
     public partial class ListaProductos : Window
     {
-        private List<Producto> pro;
         ICollectionView IcvProductos;
 
         public ListaProductos()
@@ -38,6 +37,8 @@ namespace Finanzas_Generico.Vistas
             if (IcvProductos != null)
             {
                 DgListaProductos.AutoGenerateColumns = true;
+                DgListaProductos.IsReadOnly = true;
+                DgListaProductos.MaxColumnWidth = 300;
                 DgListaProductos.ItemsSource = IcvProductos;
                 //cvPersonnes.Filter = TextFilter;
             }

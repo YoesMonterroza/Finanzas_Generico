@@ -6,9 +6,9 @@
         xmlns:local="clr-namespace:Finanzas_Generico.Vistas"
         xmlns:Manager="clr-namespace:Finanzas_Generico.Manager" x:Class="Finanzas_Generico.Vistas.ListaProductos"
         mc:Ignorable="d"
-        Title="Lista de Productos" Height="450" Width="500" Icon="/Finanzas_Generico;component/Imagenes/Iconos/IconoLibro1.png" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+        Title="Lista de Productos" Height="450" Width="569.333" Icon="/Finanzas_Generico;component/Imagenes/Iconos/IconoLibro1.png" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
     <Grid>
-        <DataGrid x:Name="DgListaProductos" HorizontalAlignment="Left" Margin="10,74,0,0" VerticalAlignment="Top" Height="274" Width="474" AutoGenerateColumns="False"/>
+        <DataGrid x:Name="DgListaProductos" HorizontalAlignment="Left" Margin="10,74,0,0" VerticalAlignment="Top" Height="274" Width="530" AutoGenerateColumns="False"/>
 
     </Grid>
 </Window>

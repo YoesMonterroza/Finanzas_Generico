@@ -64,5 +64,12 @@ namespace Finanzas_Generico.Vistas
             lp.Owner = this;
             lp.ShowDialog();
         }
+
+        private void miListaCliente_Click(object sender, RoutedEventArgs e)
+        {
+            ListaClientes lc = new ListaClientes();
+            lc.Owner = this;
+            lc.ShowDialog();
+        }
     }
 }

@@ -153,7 +153,6 @@ namespace Finanzas_Generico.Manager
             return binario;
         } // end GuardarHuella
 
-
         public static List<ListaProducto> ListaProductos()
         {
             //Producto pr = new Producto();
