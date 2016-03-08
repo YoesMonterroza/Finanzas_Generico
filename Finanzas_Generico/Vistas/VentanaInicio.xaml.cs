@@ -57,5 +57,12 @@ namespace Finanzas_Generico.Vistas
             ic.Owner = this;
             ic.ShowDialog();
         }
+
+        private void miListaProductos_Click(object sender, RoutedEventArgs e)
+        {
+            ListaProductos lp = new ListaProductos();
+            lp.Owner = this;
+            lp.ShowDialog();
+        }
     }
 }

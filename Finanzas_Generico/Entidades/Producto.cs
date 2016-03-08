@@ -19,5 +19,28 @@ namespace Finanzas_Generico.Entidades
         public DateTime fechaIngreso { get; set; }
         public DateTime fechaModificacion { get; set; }
         public Int32 usuarioModifica { get; set; }
+
+        public Producto() { }
+
+        public Producto(String codigo, String nombre, Int32 cantidad, Int32 cantidadMinima, Decimal precio, String descripcion)
+        {
+            this.codigo = codigo;
+            this.nombre = nombre;
+            this.cantidad = cantidad;
+            this.cantidadMinima = cantidadMinima;
+            this.precio = precio;
+            this.descripcion = descripcion;
+        }
+    }
+
+    public class ListaProducto
+    {
+        public String codigo { get; set; }
+        public String nombre { get; set; }
+        public Int32 cantidad { get; set; }
+        public Int32 cantidadMinima { get; set; }
+        public Decimal precio { get; set; }
+        public String descripcion { get; set; }
+
     }
 }

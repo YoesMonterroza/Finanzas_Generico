@@ -75,6 +75,9 @@
     <Compile Include="Vistas\IngresarProducto.xaml.cs">
       <DependentUpon>IngresarProducto.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Vistas\ListaProductos.xaml.cs">
+      <DependentUpon>ListaProductos.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Vistas\VentanaInicio.xaml.cs">
       <DependentUpon>VentanaInicio.xaml</DependentUpon>
     </Compile>
@@ -103,6 +106,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Vistas\IngresarProducto.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Vistas\ListaProductos.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -152,5 +152,53 @@ namespace Finanzas_Generico.Manager
             } // end using
             return binario;
         } // end GuardarHuella
+
+
+        public static List<ListaProducto> ListaProductos()
+        {
+            //Producto pr = new Producto();
+            ListaProducto lPro;
+            List<ListaProducto> listPro = new List<ListaProducto>();
+            using (MySqlCommand cmd = new MySqlCommand())
+            {
+                try
+                {
+                    ConexionDB.Conexion().Open();
+
+                    // setear parametros del command
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Connection = ConexionDB.Conexion();
+                    cmd.CommandText = "SpProductoListar";
+                    
+                    MySqlDataReader lectorProductos;
+                    lectorProductos = cmd.ExecuteReader();
+                    
+                    if (lectorProductos.HasRows)
+                    {
+                        while (lectorProductos.Read())
+                        {
+                            lPro = new ListaProducto();
+                            lPro.codigo = Convert.ToString(lectorProductos["Código"]);
+                            lPro.nombre = Convert.ToString(lectorProductos["Nombre"]);
+                            lPro.cantidad = Convert.ToInt32(lectorProductos["Cantidad"]);
+                            lPro.cantidadMinima = Convert.ToInt32(lectorProductos["Cantidad_Mínima"]);
+                            lPro.precio = Convert.ToDecimal(lectorProductos["Precio"]);
+                            lPro.descripcion = Convert.ToString(lectorProductos["Descripción"]);
+                            //pr = new ListaProducto(Convert.ToString(lectorProductos["Código"]), Convert.ToString(lectorProductos["Nombre"]), Convert.ToInt32(lectorProductos["Cantidad"]), Convert.ToInt32(lectorProductos["Cantidad_Mínima"]), Convert.ToDecimal(lectorProductos["Precio"]), Convert.ToString(lectorProductos["Descripción"]));
+                            listPro.Add(lPro);
+                        }
+                    }
+                }
+                catch (MySqlException ex)
+                {
+                    throw ex;
+                }
+                finally
+                {
+                    ConexionDB.Conexion().Close();
+                }
+            }
+            return listPro;
+        }
     }
 }
