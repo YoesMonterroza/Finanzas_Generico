@@ -10,7 +10,7 @@ namespace Finanzas_Generico.Conexion
 {
     public class ConexionDB
     {
-        private static MySql.Data.MySqlClient.MySqlConnection connMY = new MySql.Data.MySqlClient.MySqlConnection();
+        private static MySqlConnection connMY = new MySqlConnection();
         MySqlConnection Conn = new MySqlConnection();
         string connString;
 
@@ -56,7 +56,7 @@ namespace Finanzas_Generico.Conexion
         } // end CrearConexion()
 
 
-        public static MySql.Data.MySqlClient.MySqlConnection Conexion()
+        public static MySqlConnection Conexion()
         {
             // objeto de conexion
             if (connMY.State != System.Data.ConnectionState.Open)
