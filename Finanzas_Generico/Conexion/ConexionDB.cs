@@ -23,7 +23,7 @@ namespace Finanzas_Generico.Conexion
         {
             try
             {
-                connString = "Server=127.0.0.1; Database=finanzasdb; Uid=root; Pwd=Diaz-1993";
+                connString = "Server=127.0.0.1; Database=finanza; Uid=root; Pwd=123456";
                 Conn.ConnectionString = connString;
                 Conn.Open();
                 MessageBox.Show("Conexion exitosa");
@@ -50,7 +50,7 @@ namespace Finanzas_Generico.Conexion
             sCadena.Replace("<PUERTO>", "3306");
             sCadena.Replace("<BASE>", "finanzasdb");
             sCadena.Replace("<USER>", "root");
-            sCadena.Replace("<PASSWORD>", "Diaz-1993");
+            sCadena.Replace("<PASSWORD>", "123456");
 
             return Convert.ToString(sCadena);
         } // end CrearConexion()
