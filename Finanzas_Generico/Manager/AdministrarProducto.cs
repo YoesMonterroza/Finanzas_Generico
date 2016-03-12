@@ -178,12 +178,12 @@ namespace Finanzas_Generico.Manager
                         while (lectorProductos.Read())
                         {
                             lPro = new ListaProducto();
-                            lPro.codigo = Convert.ToString(lectorProductos["Código"]);
+                            lPro.codigo = Convert.ToString(lectorProductos["Codigo"]);
                             lPro.nombre = Convert.ToString(lectorProductos["Nombre"]);
                             lPro.cantidad = Convert.ToInt32(lectorProductos["Cantidad"]);
-                            lPro.cantidadMinima = Convert.ToInt32(lectorProductos["Cantidad_Mínima"]);
+                            lPro.cantidadMinima = Convert.ToInt32(lectorProductos["Cantidad_Minima"]);
                             lPro.precio = Convert.ToDecimal(lectorProductos["Precio"]);
-                            lPro.descripcion = Convert.ToString(lectorProductos["Descripción"]);
+                            lPro.descripcion = Convert.ToString(lectorProductos["Descripcion"]);
                             //pr = new ListaProducto(Convert.ToString(lectorProductos["Código"]), Convert.ToString(lectorProductos["Nombre"]), Convert.ToInt32(lectorProductos["Cantidad"]), Convert.ToInt32(lectorProductos["Cantidad_Mínima"]), Convert.ToDecimal(lectorProductos["Precio"]), Convert.ToString(lectorProductos["Descripción"]));
                             listPro.Add(lPro);
                         }
