@@ -27,11 +27,11 @@ namespace Finanzas_Generico.Vistas
         public ListaProductos()
         {
             InitializeComponent();
-
-            //pro = new List<Producto>();
-            
-            //pro = AdministrarProducto.ListaProductos();
-
+            LLenarTabla();
+        }
+        
+        public void LLenarTabla()
+        {
             IcvProductos = CollectionViewSource.GetDefaultView(AdministrarProducto.ListaProductos());
 
             if (IcvProductos != null)
@@ -40,8 +40,61 @@ namespace Finanzas_Generico.Vistas
                 DgListaProductos.IsReadOnly = true;
                 DgListaProductos.MaxColumnWidth = 300;
                 DgListaProductos.ItemsSource = IcvProductos;
-                //cvPersonnes.Filter = TextFilter;
             }
+        }
+
+        private void txt_filtro_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            ICollectionView IcvProductosFiltro;
+            List<ListaProducto> listPro = new List<ListaProducto>();
+            ListaProducto lp = new ListaProducto();
+
+            if (txt_filtro.Text != "" && txt_filtro.Text.Length > 2)
+            {
+                var filtro = from pro in AdministrarProducto.ListaProductos()
+                             where pro.nombre.Contains(txt_filtro.Text)
+                             select new { pro.codigo, pro.nombre, pro.precio, pro.cantidad, pro.cantidadMinima, pro.descripcion };
+
+                foreach (var fil in filtro){
+                    lp.codigo = fil.codigo;
+                    lp.nombre = fil.nombre;
+                    lp.precio = fil.precio;
+                    lp.cantidad = fil.cantidad;
+                    lp.cantidadMinima = fil.cantidadMinima;
+                    lp.descripcion = fil.descripcion;
+                    listPro.Add(lp);
+                }
+
+                IcvProductosFiltro = CollectionViewSource.GetDefaultView(listPro);
+
+                if (IcvProductosFiltro != null)
+                {
+                    DgListaProductos.AutoGenerateColumns = true;
+                    DgListaProductos.IsReadOnly = true;
+                    DgListaProductos.MaxColumnWidth = 300;
+                    DgListaProductos.ItemsSource = IcvProductosFiltro;
+                    //cvPersonnes.Filter = TextFilter;
+                }
+            }
+            else
+            {
+                LLenarTabla();
+            }
+        }
+
+        private void btn_mostrar_Click(object sender, RoutedEventArgs e)
+        {
+            if (DgListaProductos.SelectedIndex >= 0)
+            {
+                ListaProducto lp = new ListaProducto();
+                lp = (ListaProducto)DgListaProductos.SelectedValue;
+                MessageBox.Show(lp.codigo + "\n" + lp.nombre);
+            }
+        }
+
+        private void btn_salir_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
         }
     }
 }

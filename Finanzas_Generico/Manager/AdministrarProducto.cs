@@ -34,6 +34,7 @@ namespace Finanzas_Generico.Manager
                     cmd.Parameters.AddWithValue("p_cantidadMinima", pr.cantidadMinima);
                     cmd.Parameters.AddWithValue("p_precio", pr.precio);
                     cmd.Parameters.AddWithValue("p_estado", pr.estado);
+                    cmd.Parameters.AddWithValue("p_descripcion", pr.descripcion);
                     cmd.Parameters.AddWithValue("p_usuarioModifica", pr.usuarioModifica);
 
                     //abrir la conexion

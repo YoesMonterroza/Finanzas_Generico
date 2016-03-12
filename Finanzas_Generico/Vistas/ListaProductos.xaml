@@ -8,7 +8,13 @@
         mc:Ignorable="d"
         Title="Lista de Productos" Height="450" Width="569.333" Icon="/Finanzas_Generico;component/Imagenes/Iconos/IconoLibro1.png" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
     <Grid>
-        <DataGrid x:Name="DgListaProductos" HorizontalAlignment="Left" Margin="10,74,0,0" VerticalAlignment="Top" Height="274" Width="530" AutoGenerateColumns="False"/>
+        <DataGrid x:Name="DgListaProductos" HorizontalAlignment="Left" Margin="10,74,0,0" VerticalAlignment="Top" Height="274" Width="530" AutoGenerateColumns="False">
+            
+        </DataGrid>
+        <TextBox x:Name="txt_filtro" HorizontalAlignment="Left" Height="24" Margin="122,43,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="143" SpellCheck.IsEnabled="True" TextChanged="txt_filtro_TextChanged"/>
+        <Label x:Name="lbl_Filtrar_" Content="Filtrar por nombre" HorizontalAlignment="Left" Margin="10,41,0,0" VerticalAlignment="Top"/>
+        <Button x:Name="btn_mostrar" Content="mostrar" HorizontalAlignment="Left" Margin="464,45,0,0" VerticalAlignment="Top" Width="75" Click="btn_mostrar_Click" />
+        <Button x:Name="btn_salir" Content="salir" HorizontalAlignment="Left" Margin="464,368,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="0.747,-0.773" Click="btn_salir_Click"/>
 
     </Grid>
 </Window>
