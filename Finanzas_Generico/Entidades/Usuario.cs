@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Finanzas_Generico.Entidades
 {
-    class Usuario
+    public struct Usuario
     {
         public String id { get; set; }
         public String identificacion { get; set; }

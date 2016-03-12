@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Finanzas_Generico.Entidades
 {
-    public class Producto
+    public struct Producto
     {
         public String id { get; set; }
         public String codigo { get; set; }
@@ -33,7 +33,7 @@ namespace Finanzas_Generico.Entidades
         }
     }
 
-    public class ListaProducto
+    public struct ListaProducto
     {
         public String codigo { get; set; }
         public String nombre { get; set; }
