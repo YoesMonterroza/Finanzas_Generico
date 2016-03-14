@@ -20,17 +20,17 @@ namespace Finanzas_Generico.Entidades
         public DateTime fechaModificacion { get; set; }
         public Int32 usuarioModifica { get; set; }
 
-        public Producto() { }
+        //public Producto() { }
 
-        public Producto(String codigo, String nombre, Int32 cantidad, Int32 cantidadMinima, Decimal precio, String descripcion)
-        {
-            this.codigo = codigo;
-            this.nombre = nombre;
-            this.cantidad = cantidad;
-            this.cantidadMinima = cantidadMinima;
-            this.precio = precio;
-            this.descripcion = descripcion;
-        }
+        //public Producto(String codigo, String nombre, Int32 cantidad, Int32 cantidadMinima, Decimal precio, String descripcion)
+        //{
+        //    this.codigo = codigo;
+        //    this.nombre = nombre;
+        //    this.cantidad = cantidad;
+        //    this.cantidadMinima = cantidadMinima;
+        //    this.precio = precio;
+        //    this.descripcion = descripcion;
+        //}
     }
 
     public struct ListaProducto
