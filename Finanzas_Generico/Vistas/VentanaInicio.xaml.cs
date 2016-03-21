@@ -71,5 +71,17 @@ namespace Finanzas_Generico.Vistas
             lc.Owner = this;
             lc.ShowDialog();
         }
+
+        private void image_Loaded(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void miGenerarFactura_Click(object sender, RoutedEventArgs e)
+        {
+            GenerarFactura gf = new GenerarFactura();
+            gf.Owner = this;
+            gf.ShowDialog();
+        }
     }
 }

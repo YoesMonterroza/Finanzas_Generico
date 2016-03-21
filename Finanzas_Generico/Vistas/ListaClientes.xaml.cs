@@ -88,5 +88,16 @@ namespace Finanzas_Generico.Vistas
         {
             this.Close();
         }
+
+        private void btn_Actulizar_Click(object sender, RoutedEventArgs e)
+        {
+            if (DgListaClientes.SelectedIndex >= 0)
+            {
+                ListaPersona lp = new ListaPersona();
+                lp = (ListaPersona)DgListaClientes.SelectedValue;
+                ActualizarCliente ac = new ActualizarCliente(lp.Identificación);
+                ac.ShowDialog();
+            }
+        }
     }
 }

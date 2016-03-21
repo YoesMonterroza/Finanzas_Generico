@@ -27,6 +27,27 @@ namespace Finanzas_Generico.Vistas
             txt_Identificacion.Focus();
         }
 
+        public ActualizarCliente(String IdCliente)
+        {
+            InitializeComponent();
+
+            AdministrarPersona ap = new AdministrarPersona();
+            Persona person = new Persona();
+            person = ap.ConsultarPersona(IdCliente);
+
+            txt_Nombres.Text = person.nombres;
+            txt_Apellidos.Text = person.apellidos;
+            txt_Direccion.Text = person.direccion;
+            txt_Correo.Text = person.correo;
+            txt_Telefono.Text = person.telefono;
+            cb_Estado.SelectedIndex = Convert.ToInt32(person.estado);
+            txt_Observaciones.Text = person.observaciones;
+
+            btn_Buscar.IsEnabled = false;
+            txt_Identificacion.IsEnabled = false;
+            txt_Nombres.Focus();
+        }
+
         private void btn_Salir_Click(object sender, RoutedEventArgs e)
         {
             LimpiarCampos();
@@ -92,10 +113,10 @@ namespace Finanzas_Generico.Vistas
             txt_Telefono.Text = "";
             cb_Estado.SelectedIndex = 0;
             txt_Observaciones.Text = "";
-            txt_Identificacion.Focus();
 
             btn_Buscar.IsEnabled = true;
             txt_Identificacion.IsEnabled = true;
+            txt_Identificacion.Focus();
         }
     }
 }

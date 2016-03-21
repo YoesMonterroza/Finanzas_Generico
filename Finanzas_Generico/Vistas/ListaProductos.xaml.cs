@@ -86,9 +86,11 @@ namespace Finanzas_Generico.Vistas
         {
             if (DgListaProductos.SelectedIndex >= 0)
             {
+                this.Close();
                 ListaProducto lp = new ListaProducto();
                 lp = (ListaProducto)DgListaProductos.SelectedValue;
-                MessageBox.Show(lp.codigo + "\n" + lp.nombre);
+                ActualizarProducto ap = new ActualizarProducto(lp.codigo);
+                ap.ShowDialog();
             }
         }
 

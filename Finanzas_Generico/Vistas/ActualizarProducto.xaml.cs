@@ -21,9 +21,32 @@ namespace Finanzas_Generico.Vistas
     /// </summary>
     public partial class ActualizarProducto : Window
     {
+        private bool origenListaProducto = false;
+
         public ActualizarProducto()
         {
             InitializeComponent();
+        }
+
+        public ActualizarProducto(String cod_Producto)
+        {
+            InitializeComponent();
+            AdministrarProducto ap = new AdministrarProducto();
+            Producto pr = new Producto();
+            pr = ap.ConsultarProducto(cod_Producto);
+
+            txt_CodProducto.Text = cod_Producto;
+            txt_Nombre.Text = Convert.ToString(pr.nombre);
+            txt_Cantidad.Text = Convert.ToString(pr.cantidad);
+            txt_CantidadMinima.Text = Convert.ToString(pr.cantidadMinima);
+            txt_Precio.Text = Convert.ToString(pr.precio);
+            cb_Estado.SelectedIndex = Convert.ToInt32(pr.estado);
+            txt_descripcion.Text = Convert.ToString(pr.descripcion);
+            txt_CodProducto.IsEnabled = false;
+            ConsultarProducto.IsEnabled = false;
+            txt_Nombre.Focus();
+
+            origenListaProducto = true;
         }
 
         private void ConsultarProducto_Click(object sender, RoutedEventArgs e)
@@ -46,6 +69,13 @@ namespace Finanzas_Generico.Vistas
         {
             LimpiarCampos();
             this.Close();
+
+            if(origenListaProducto == true)
+            {
+                origenListaProducto = false;
+                ListaProductos lp = new ListaProductos();
+                lp.ShowDialog();
+            }
         }
 
         public void LimpiarCampos()
@@ -59,6 +89,7 @@ namespace Finanzas_Generico.Vistas
             txt_CodProducto.IsEnabled = true;
             txt_descripcion.Text = "";
             ConsultarProducto.IsEnabled = true;
+            txt_CodProducto.Focus();
         }
 
         private void btn_Nuevo_Click(object sender, RoutedEventArgs e)

@@ -7,11 +7,11 @@
         mc:Ignorable="d"
         Title="Bienvenido" Height="500" Width="500" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" Icon="/Finanzas_Generico;component/Imagenes/Iconos/IconoLibro1.png">
     <Grid>
-        <Menu Height="25" Margin="0,0,0,445">            
+        <Menu Height="25" Margin="0,0,0,445">
             <MenuItem Header="Producto">
-                <MenuItem Header="Ingresar Producto" Name="miAgregarProducto" Click="miAgregarProducto_Click"></MenuItem>
-                <MenuItem Header="Actualizar Producto" Name="miActualizarProducto" Click="miActualizarProducto_Click"></MenuItem>
-                <MenuItem Header="Lista Productos" Name="miListaProductos" Click="miListaProductos_Click"></MenuItem>
+                <MenuItem Header="Ingresar" Name="miAgregarProducto" Click="miAgregarProducto_Click"></MenuItem>
+                <MenuItem Header="Actualizar" Name="miActualizarProducto" Click="miActualizarProducto_Click"></MenuItem>
+                <MenuItem Header="Lista" Name="miListaProductos" Click="miListaProductos_Click"></MenuItem>
             </MenuItem>
             <MenuItem Header="Cliente">
                 <MenuItem Header="Ingresar" Name="miAgregarCliente" Click="miAgregarCliente_Click"></MenuItem>
@@ -19,12 +19,13 @@
                 <MenuItem Header="Lista" Name="miListaCliente" Click="miListaCliente_Click" ></MenuItem>
             </MenuItem>
             <MenuItem Header="Factura" VerticalAlignment="Top">
-                <MenuItem Header="Generar Factura" Name="miGenerarFactura"></MenuItem>
+                <MenuItem Header="Generar Factura" Name="miGenerarFactura" Click="miGenerarFactura_Click"></MenuItem>
                 <MenuItem Header="Consultar Factura" Name="miConsultarFactura"></MenuItem>
                 <MenuItem Header="Generar Abonos" Name="miGenerarAbono"></MenuItem>
                 <MenuItem Header="Consultar Abonos" Name="miConsultarAbono"></MenuItem>
             </MenuItem>
             <MenuItem x:Name="CerrarSesion" Header="Cerrar sesión" Click="CerrarSesion_Click"></MenuItem>
         </Menu>
+        <Label x:Name="lblNombre" Content="Luna Turqueza" HorizontalAlignment="Left" Margin="86,44,0,0" VerticalAlignment="Top" FontFamily="Script MT Bold" FontSize="48" Foreground="#FF1D59B0"/>
     </Grid>
 </Window>

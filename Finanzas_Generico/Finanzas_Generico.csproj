@@ -60,6 +60,7 @@
     <Compile Include="Entidades\Persona.cs" />
     <Compile Include="Entidades\Producto.cs" />
     <Compile Include="Entidades\Usuario.cs" />
+    <Compile Include="Manager\AdministrarFactura.cs" />
     <Compile Include="Manager\AdministrarPersona.cs" />
     <Compile Include="Manager\AdministrarProducto.cs" />
     <Compile Include="Manager\AdministrarUsuario.cs" />
@@ -68,6 +69,9 @@
     </Compile>
     <Compile Include="Vistas\ActualizarProducto.xaml.cs">
       <DependentUpon>ActualizarProducto.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Vistas\GenerarFactura.xaml.cs">
+      <DependentUpon>GenerarFactura.xaml</DependentUpon>
     </Compile>
     <Compile Include="Vistas\IngresarCliente.xaml.cs">
       <DependentUpon>IngresarCliente.xaml</DependentUpon>
@@ -101,6 +105,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Vistas\ActualizarProducto.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Vistas\GenerarFactura.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
