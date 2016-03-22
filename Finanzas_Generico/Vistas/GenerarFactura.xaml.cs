@@ -20,16 +20,15 @@ namespace Finanzas_Generico.Vistas
     /// </summary>
     public partial class GenerarFactura : Window
     {
+        String[] captura;
+
         public GenerarFactura()
         {
             InitializeComponent();
-        }
-
-        private void button_Click(object sender, RoutedEventArgs e)
-        {
             AdministrarFactura af = new AdministrarFactura();
-            String[] captura = af.ObtenerConsecutivo();
-            MessageBox.Show("El numero de factura es " +captura[0] + " el codigo de factura es " + captura[1]);
+            captura = af.ObtenerConsecutivo();
+            lbl_nrofactura.Content = "Codigo de factura: " + captura[1];
         }
+        
     }
 }

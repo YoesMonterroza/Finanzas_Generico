@@ -1,13 +1,13 @@
-﻿<Window x:Class="Finanzas_Generico.Vistas.GenerarFactura"
+﻿<Window x:Name="Registrar_venta" x:Class="Finanzas_Generico.Vistas.GenerarFactura"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Finanzas_Generico.Vistas"
         mc:Ignorable="d"
-        Title="GenerarFactura" Height="300" Width="300">
+        Title="Registrar venta" Height="500" Width="500" Icon="/Finanzas_Generico;component/Imagenes/Iconos/IconoLibro1.png" ResizeMode="NoResize" WindowStartupLocation="CenterOwner">
     <Grid>
-        <Button x:Name="button" Content="Button" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="75" Click="button_Click"/>
+        <Label x:Name="lbl_nrofactura" Content="" HorizontalAlignment="Left" Margin="284,10,0,0" VerticalAlignment="Top" Width="178"/>
 
     </Grid>
 </Window>

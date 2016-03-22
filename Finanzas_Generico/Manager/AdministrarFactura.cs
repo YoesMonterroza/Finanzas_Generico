@@ -77,6 +77,10 @@ namespace Finanzas_Generico.Manager
 
                     throw;
                 }
+                finally
+                {
+                    ConexionDB.Conexion().Close();
+                }
             }
 
             return arrayString;
