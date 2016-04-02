@@ -5,9 +5,55 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Finanzas_Generico.Vistas"
         mc:Ignorable="d"
-        Title="Registrar venta" Height="500" Width="500" Icon="/Finanzas_Generico;component/Imagenes/Iconos/IconoLibro1.png" ResizeMode="NoResize" WindowStartupLocation="CenterOwner">
+        Title="Registrar venta" Height="650" Width="600" Icon="/Finanzas_Generico;component/Imagenes/Iconos/IconoLibro1.png" ResizeMode="NoResize" WindowStartupLocation="CenterOwner">
     <Grid>
-        <Label x:Name="lbl_nrofactura" Content="" HorizontalAlignment="Left" Margin="284,10,0,0" VerticalAlignment="Top" Width="178"/>
+        <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="111" Margin="10,21,0,0" Stroke="Black" VerticalAlignment="Top" Width="565"/>
+        <Label x:Name="lbl_nrofactura" Content="" HorizontalAlignment="Right" HorizontalContentAlignment="Right" Margin="0,31,29,0" VerticalAlignment="Top" Width="178" RenderTransformOrigin="0.713,0.423"/>
+        <Label x:Name="lbl_Identificacion" Content="Identificación" HorizontalAlignment="Left" Margin="21,31,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="txt_Identificacion" HorizontalAlignment="Left" Height="23" Margin="107,34,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="135" TextChanged="txt_Identificacion_TextChanged"/>
+        <Label x:Name="lbl_NombreCompleto" Content="Nombre" HorizontalAlignment="Left" Margin="21,62,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="txt_Nombre" HorizontalAlignment="Left" Height="23" Margin="107,62,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="255" IsEnabled="False"/>
+        <Label x:Name="lbl_Telefono" Content="Telefono" HorizontalAlignment="Left" Margin="373,62,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="txt_Telefono" HorizontalAlignment="Left" Height="23" Margin="444,65,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="121" IsEnabled="False"/>
+        <Button x:Name="btn_BuscarCliente" Content="Buscar" HorizontalAlignment="Left" Margin="258,34,0,0" VerticalAlignment="Top" Width="52" Click="btn_BuscarCliente_Click"/>
+        <Label x:Name="lbl_Titulo1" Content="Datos Basicos" HorizontalAlignment="Left" Margin="5,2,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="lbl_Direccion" Content="Dirección" HorizontalAlignment="Left" Margin="21,93,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="txt_Direccion" HorizontalAlignment="Left" Height="23" Margin="107,96,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="458" IsEnabled="False"/>
+        <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="277" Margin="10,156,0,0" Stroke="Black" VerticalAlignment="Top" Width="565"/>
+        <Label x:Name="lbl_Titulo2" Content="Datos Productos" HorizontalAlignment="Left" Margin="6,137,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="lbl_Identificacion_Copy" Content="Filtrar por nombre" HorizontalAlignment="Left" Margin="23,159,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="txt_FiltrarNombre" HorizontalAlignment="Left" Height="23" Margin="138,162,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="119" TextChanged="txt_FiltrarNombre_TextChanged"/>
+        <Label x:Name="lbl_Identificacion_Copy1" Content="Cantidad" HorizontalAlignment="Left" Margin="299,159,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="txt_CantidadProducto" HorizontalAlignment="Left" Height="23" Margin="362,162,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="58"/>
+        <Button x:Name="btn_Agregar" Content="Agregar" HorizontalAlignment="Left" Margin="490,161,0,0" VerticalAlignment="Top" Width="75" Click="btn_Agregar_Click"/>
+        <DataGrid x:Name="dg_ListaProductos" HorizontalAlignment="Left" Margin="24,190,0,0" VerticalAlignment="Top" Height="94" Width="542"/>
+        <DataGrid x:Name="dg_ListaProductosVenta" HorizontalAlignment="Left" Margin="24,316,0,0" VerticalAlignment="Top" Height="107" Width="542"/>
+        <Button x:Name="btn_EliminarProducto" Content="Eliminar" HorizontalAlignment="Left" Margin="491,289,0,0" VerticalAlignment="Top" Width="75" Height="27" Click="btn_EliminarProducto_Click"/>
+        <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="138" Margin="10,438,0,0" Stroke="Black" VerticalAlignment="Top" Width="565"/>
+        <Label x:Name="lbl_SubTotal" Content="Sub - Total" HorizontalAlignment="Left" Margin="24,451,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="label1" Content="Descuento" HorizontalAlignment="Left" Margin="234,451,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="lbl_Total" Content="Total" HorizontalAlignment="Left" Margin="416,451,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="txt_SubTotal" HorizontalAlignment="Left" Height="23" Margin="120,454,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="96" IsEnabled="False"/>
+        <TextBox x:Name="txt_Descuento" HorizontalAlignment="Left" Height="23" Margin="301,454,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="95" TextChanged="txt_Descuento_TextChanged"/>
+        <TextBox x:Name="txt_Total" HorizontalAlignment="Left" Height="23" Margin="457,454,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="104" IsEnabled="False"/>
+        <Label x:Name="lbl_Observaciones" Content="Observaciones" HorizontalAlignment="Left" Margin="24,482,0,0" VerticalAlignment="Top" Width="90"/>
+        <TextBox x:Name="txt_Observaciones" HorizontalAlignment="Left" Height="44" Margin="119,485,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="442"/>
+        <Button x:Name="btn_Facturar" Content="Facturar" HorizontalAlignment="Left" Margin="299,585,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button x:Name="btn_Nuevo" Content="Nuevo" HorizontalAlignment="Left" Margin="399,585,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button x:Name="btn_Salir" Content="Salir" HorizontalAlignment="Left" Margin="500,585,0,0" VerticalAlignment="Top" Width="75" Click="btn_Salir_Click"/>
+        <Label x:Name="lbl_TipoPago" Content="Tipo de pago" HorizontalAlignment="Left" Margin="24,534,0,0" VerticalAlignment="Top"/>
+        <ComboBox x:Name="cb_TipoPago" HorizontalAlignment="Left" Margin="119,538,0,0" VerticalAlignment="Top" Width="97" SelectionChanged="cb_TipoPago_SelectionChanged">
+            <ListBoxItem Content="Inmediato" IsSelected="True"/>
+            <ListBoxItem Content="Abono"/>
+            <ListBoxItem Content="Post-Pago"/>
+        </ComboBox>
+        <Label x:Name="lbl_Valor_Abono" Content="Valor abono" HorizontalAlignment="Left" Margin="234,535,0,0" VerticalAlignment="Top" Visibility="Hidden"/>
+        <TextBox x:Name="txt_ValorAbono" HorizontalAlignment="Left" Height="23" Margin="306,538,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Visibility="Hidden"/>
+        <Button x:Name="btn_refrescar" HorizontalAlignment="Left" Margin="317,34,0,0" VerticalAlignment="Top" Width="43" Click="btn_refrescar_Click" Height="22" IsEnabled="False">
+            <DockPanel>
+                <Image Source="C:\Users\Monterroza\Documents\Visual Studio 2015\Projects\Finanzas_Generico\Finanzas_Generico\Imagenes\Iconos\refresh.png" Height="15" Width="25"></Image>
+            </DockPanel>
+        </Button>
 
     </Grid>
 </Window>

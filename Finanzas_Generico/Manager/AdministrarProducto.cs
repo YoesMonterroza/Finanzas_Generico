@@ -200,5 +200,50 @@ namespace Finanzas_Generico.Manager
             }
             return listPro;
         }
+
+        public static List<ListaProductoFactura> ListaProductosFactura()
+        {
+            //Producto pr = new Producto();
+            ListaProductoFactura lPro;
+            List<ListaProductoFactura> listPro = new List<ListaProductoFactura>();
+            using (MySqlCommand cmd = new MySqlCommand())
+            {
+                try
+                {
+                    ConexionDB.Conexion().Open();
+
+                    // setear parametros del command
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Connection = ConexionDB.Conexion();
+                    cmd.CommandText = "SpProductoListar";
+
+                    MySqlDataReader lectorProductos;
+                    lectorProductos = cmd.ExecuteReader();
+
+                    if (lectorProductos.HasRows)
+                    {
+                        while (lectorProductos.Read())
+                        {
+                            lPro = new ListaProductoFactura();
+                            lPro.codigo = Convert.ToString(lectorProductos["Codigo"]);
+                            lPro.nombre = Convert.ToString(lectorProductos["Nombre"]);
+                            lPro.cantidad = Convert.ToInt32(lectorProductos["Cantidad"]);
+                            lPro.precio = Convert.ToDecimal(lectorProductos["Precio"]);
+                            //pr = new ListaProducto(Convert.ToString(lectorProductos["Código"]), Convert.ToString(lectorProductos["Nombre"]), Convert.ToInt32(lectorProductos["Cantidad"]), Convert.ToInt32(lectorProductos["Cantidad_Mínima"]), Convert.ToDecimal(lectorProductos["Precio"]), Convert.ToString(lectorProductos["Descripción"]));
+                            listPro.Add(lPro);
+                        }
+                    }
+                }
+                catch (MySqlException ex)
+                {
+                    throw ex;
+                }
+                finally
+                {
+                    ConexionDB.Conexion().Close();
+                }
+            }
+            return listPro;
+        }
     }
 }

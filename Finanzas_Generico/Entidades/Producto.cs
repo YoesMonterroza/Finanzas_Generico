@@ -41,6 +41,22 @@ namespace Finanzas_Generico.Entidades
         public Int32 cantidadMinima { get; set; }
         public Decimal precio { get; set; }
         public String descripcion { get; set; }
+    }
 
+    public struct ListaProductoFactura
+    {
+        public String codigo { get; set; }
+        public String nombre { get; set; }
+        public Int32 cantidad { get; set; }
+        public Decimal precio { get; set; }
+    }
+
+    public struct ListaProductoVenta
+    {
+        public String codigo { get; set; }
+        public String nombre { get; set; }
+        public Int32 cantidad { get; set; }
+        public Decimal precio { get; set; }
+        public Decimal precioTotal { get; set; }
     }
 }

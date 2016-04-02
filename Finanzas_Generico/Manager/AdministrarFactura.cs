@@ -45,25 +45,25 @@ namespace Finanzas_Generico.Manager
                     switch (tamanoCadena)
                     {
                         case 1:
-                            consecutivoGenerado = "FAC000000" + consecutivo;
+                            consecutivoGenerado = "000000" + consecutivo;
                             break;
                         case 2:
-                            consecutivoGenerado = "FAC00000" + consecutivo;
+                            consecutivoGenerado = "00000" + consecutivo;
                             break;
                         case 3:
-                            consecutivoGenerado = "FAC0000" + consecutivo;
+                            consecutivoGenerado = "0000" + consecutivo;
                             break;
                         case 4:
-                            consecutivoGenerado = "FAC000" + consecutivo;
+                            consecutivoGenerado = "000" + consecutivo;
                             break;
                         case 5:
-                            consecutivoGenerado = "FAC00" + consecutivo;
+                            consecutivoGenerado = "00" + consecutivo;
                             break;
                         case 6:
-                            consecutivoGenerado = "FAC0" + consecutivo;
+                            consecutivoGenerado = "0" + consecutivo;
                             break;
                         case 7:
-                            consecutivoGenerado = "FAC" + consecutivo;
+                            consecutivoGenerado = "" + consecutivo;
                             break;
 
                         default:                            
