@@ -1,6 +1,11 @@
-﻿using System;
+﻿using Finanzas_Generico.Conexion;
+using Finanzas_Generico.Entidades;
+using Finanzas_Generico.Manager;
+using Finanzas_Generico.Vistas;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -12,7 +17,6 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using Finanzas_Generico.Vistas;
 
 namespace Finanzas_Generico
 {
@@ -28,9 +32,36 @@ namespace Finanzas_Generico
 
         private void btnLoguin_Click(object sender, RoutedEventArgs e)
         {
-            this.Hide();
-            VentanaInicio vi = new VentanaInicio();
-            vi.ShowDialog();
+            string user = txtUsuario.Text;
+            string pass = Utilidades.ConvertirHash(txtPassBox.Password);
+            Usuario usuario = new Usuario();
+            usuario = AdministrarUsuario.Consultar(user);
+            if (!usuario.id.Equals("error"))
+            {
+                if (usuario.pass.Equals(pass))
+                {
+                    this.Hide();
+                    VentanaInicio vi = new VentanaInicio();
+                    vi.ShowDialog();
+                }
+                else
+                {
+                    MessageBox.Show("El usuario y/o la contraseña son incorrectos", "Error");
+                    txtPassBox.Clear();
+                }
+            }
+            else
+            {
+                MessageBox.Show("El usuario y/o la contraseña son incorrectos", "Error");
+                txtPassBox.Clear();
+            }
+        }
+
+        private void lblRecuperaContrasena_MouseUp(object sender, MouseButtonEventArgs e)
+        {
+            //this.Hide();
+            RecuperarContrasena rc = new RecuperarContrasena();
+            rc.ShowDialog();
         }
     }
 }
