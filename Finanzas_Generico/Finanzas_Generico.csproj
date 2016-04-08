@@ -62,7 +62,7 @@
     <Compile Include="Entidades\Producto.cs" />
     <Compile Include="Entidades\Usuario.cs" />
     <Compile Include="Entidades\Venta.cs" />
-    <Compile Include="Manager\AdministrarFactura.cs" />
+    <Compile Include="Manager\AdministrarVenta.cs" />
     <Compile Include="Manager\AdministrarPersona.cs" />
     <Compile Include="Manager\AdministrarProducto.cs" />
     <Compile Include="Manager\AdministrarUsuario.cs" />

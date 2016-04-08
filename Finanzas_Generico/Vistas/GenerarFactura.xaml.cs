@@ -1,5 +1,6 @@
 ﻿using Finanzas_Generico.Entidades;
 using Finanzas_Generico.Manager;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -18,12 +19,13 @@ namespace Finanzas_Generico.Vistas
         private String[] captura;
         private ICollectionView IcvProductos;
         private ICollectionView IcvProductosVenta;
+        private List<ListaProductoFactura> lProfact = new List<ListaProductoFactura>();
         private List<ListaProductoVenta> lProVent = new List<ListaProductoVenta>();
 
         public GenerarFactura()
         {
             InitializeComponent();
-            AdministrarFactura af = new AdministrarFactura();
+            AdministrarVenta af = new AdministrarVenta();
             captura = af.ObtenerConsecutivo();
             lbl_nrofactura.Content = "Codigo de factura: " + captura[1];
             LLenarTabla();
@@ -32,7 +34,8 @@ namespace Finanzas_Generico.Vistas
 
         public void LLenarTabla()
         {
-            IcvProductos = CollectionViewSource.GetDefaultView(AdministrarProducto.ListaProductosFactura());
+            lProfact = AdministrarProducto.ListaProductosFactura();
+            IcvProductos = CollectionViewSource.GetDefaultView(lProfact);
 
             if (IcvProductos != null)
             {
@@ -239,5 +242,55 @@ namespace Finanzas_Generico.Vistas
 
             }
         }
+
+        private void btn_Facturar_Click(object sender, RoutedEventArgs e)
+        {
+            int resultadoGuardar;
+            int nuevaCantidadProducto;
+
+            Venta vt = new Venta();
+            AdministrarVenta av = new AdministrarVenta();
+
+
+            vt.setCodigo(captura[0]);
+            vt.setIdentificacion(txt_Identificacion.Text);
+            vt.setListaProductos(JsonConvert.SerializeObject(lProVent));
+            vt.setSubTotal(decimal.Parse(txt_SubTotal.Text));
+            vt.setDescuento(decimal.Parse(txt_Descuento.Text));
+            vt.setTotal(decimal.Parse(txt_Total.Text));
+            vt.setTipoPago(cb_TipoPago.SelectedIndex.ToString());
+            if(cb_TipoPago.SelectedIndex == 1)
+            {
+                vt.setMontoAbono(decimal.Parse(txt_ValorAbono.Text));
+            }
+            vt.setObservacion(txt_Observaciones.Text);
+
+            resultadoGuardar = av.InsertarVenta(vt);
+            if (resultadoGuardar == 1)
+            {
+                foreach (ListaProductoVenta lpg in lProVent)
+                {
+                    foreach (ListaProductoFactura lpf in lProfact)
+                    {
+                        if (lpg.codigo.Equals(lpf.codigo))
+                        {
+                            nuevaCantidadProducto = lpf.cantidad - lpg.cantidad;
+                            AdministrarProducto.ActualizarCantidadProducto(lpg.codigo, nuevaCantidadProducto, 0);
+                        }
+                    }
+                }
+            }
+
+            if (cb_GenerarPdf.IsChecked.Value)
+            {
+                
+            }
+        }
+
+        private void btn_Nuevo_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
     }
 }

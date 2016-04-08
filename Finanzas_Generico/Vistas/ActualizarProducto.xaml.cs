@@ -109,7 +109,7 @@ namespace Finanzas_Generico.Vistas
             p.estado = Convert.ToString(cb_Estado.SelectedIndex);
             p.descripcion = txt_descripcion.Text;
             p.usuarioModifica = 0;
-            capturarBinario = AdministrarProducto.ActualizarUsuario(p);
+            capturarBinario = AdministrarProducto.ActualizarProducto(p);
             
 
             if (capturarBinario == 1){
