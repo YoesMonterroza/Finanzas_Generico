@@ -8,16 +8,18 @@ namespace Finanzas_Generico.Entidades
 {
     public class Venta
     {
-        private string codigo { get; set; }
-        private string identCliente { get; set; }
-        private string listaProductos { get; set; }
-        private decimal subTotal { get; set; }
-        private decimal descuento { get; set; }
-        private decimal total { get; set; }
-        private string tipoPago { get; set; }
-        private int usuarioModifica { get; set; }
-        private DateTime fechaCreacion { get; set; }
-        private DateTime fechaModificacion { get; set; }
+        private string codigo;// { get; set; }
+        private string identCliente;// { get; set; }
+        private string listaProductos;// { get; set; }
+        private decimal subTotal;// { get; set; }
+        private decimal descuento;// { get; set; }
+        private decimal total;// { get; set; }
+        private string tipoPago;// { get; set; }
+        private decimal montoAbono;// { get; set; }
+        private string observacion;// { get; set; }
+        private int usuarioModifica;// { get; set; }
+        private DateTime fechaCreacion;// { get; set; }
+        private DateTime fechaModificacion;// { get; set; }
 
         public string Codigo() {
             return codigo;
@@ -116,6 +118,26 @@ namespace Finanzas_Generico.Entidades
         public void setFechaModificacion(DateTime fechaModificacion)
         {
             this.fechaModificacion = fechaModificacion;
+        }
+
+        public decimal MontoAbono()
+        {
+            return montoAbono;
+        }
+
+        public void setMontoAbono(decimal montoAbono)
+        {
+            this.montoAbono = montoAbono;
+        }
+
+        public string Observacion()
+        {
+            return observacion;
+        }
+
+        public void setObservacion(string observacion)
+        {
+            this.observacion = observacion;
         }
     }
 }

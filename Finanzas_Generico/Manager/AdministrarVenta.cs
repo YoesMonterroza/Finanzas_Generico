@@ -1,4 +1,5 @@
 ﻿using Finanzas_Generico.Conexion;
+using Finanzas_Generico.Entidades;
 using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
@@ -9,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace Finanzas_Generico.Manager
 {
-    class AdministrarFactura
+    class AdministrarVenta
     {
         public String[] ObtenerConsecutivo()
         {
@@ -84,6 +85,49 @@ namespace Finanzas_Generico.Manager
             }
 
             return arrayString;
+        }
+
+        public int InsertarVenta(Venta vt)
+        {
+            int binario = 0;
+            using (MySqlCommand cmd = new MySqlCommand())
+            {
+                try
+                {
+                    // setear parametros del command
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Connection = ConexionDB.Conexion();
+                    cmd.CommandText = "SpVentaInsertar";
+
+                    //asignar paramentros
+                    cmd.Parameters.AddWithValue("p_consecutivo", vt.Codigo());
+                    cmd.Parameters.AddWithValue("p_identificacion_cliente", vt.Identificacion());
+                    cmd.Parameters.AddWithValue("p_json_productos", vt.ListaProductos());
+                    cmd.Parameters.AddWithValue("p_sub_Total", vt.SubTotal());
+                    cmd.Parameters.AddWithValue("p_descuento", vt.Descuento());
+                    cmd.Parameters.AddWithValue("p_total", vt.Total());
+                    cmd.Parameters.AddWithValue("P_tipoPago", vt.TipoPago());
+                    cmd.Parameters.AddWithValue("p_montoAbono", vt.MontoAbono());
+                    cmd.Parameters.AddWithValue("p_observacion", vt.Observacion());
+                    cmd.Parameters.AddWithValue("p_UsuarioModifica", 0);
+
+                    //abrir la conexion
+                    ConexionDB.Conexion().Open();
+
+                    //ejecutar el query
+                    binario = cmd.ExecuteNonQuery();
+                    
+                }
+                catch (MySqlException ex)
+                {
+                    throw ex;
+                }
+                finally
+                {
+                    ConexionDB.Conexion().Close();
+                } // end try
+            } // end using
+            return binario;
         }
     }
 }

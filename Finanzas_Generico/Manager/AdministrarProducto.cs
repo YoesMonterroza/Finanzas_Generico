@@ -15,7 +15,7 @@ namespace Finanzas_Generico.Manager
         //private MySqlDataAdapter da;
         public DataTable dTable { get; set; }
 
-        public static int InsertarUsuario(Producto pr)
+        public static int InsertarProducto(Producto pr)
         {
             int binario = 0;
             using (MySqlCommand cmd = new MySqlCommand())
@@ -41,13 +41,11 @@ namespace Finanzas_Generico.Manager
                     ConexionDB.Conexion().Open();
 
                     //ejecutar el query
-                    cmd.ExecuteNonQuery();
-
-                    binario = 1;
+                    binario = cmd.ExecuteNonQuery();
+                    
                 }
                 catch (MySqlException ex)
                 {
-                    binario = 0;
                     throw ex;
                 }
                 finally
@@ -111,7 +109,7 @@ namespace Finanzas_Generico.Manager
             return pr;
         }
 
-        public static int ActualizarUsuario(Producto pr)
+        public static int ActualizarProducto(Producto pr)
         {
             int binario = 0;
             using (MySqlCommand cmd = new MySqlCommand())
@@ -137,13 +135,11 @@ namespace Finanzas_Generico.Manager
                     ConexionDB.Conexion().Open();
 
                     //ejecutar el query
-                    cmd.ExecuteNonQuery();
-
-                    binario = 1;
+                    binario = cmd.ExecuteNonQuery();
+                    
                 }
                 catch (MySqlException ex)
                 {
-                    binario = 0;
                     throw ex;
                 }
                 finally
@@ -244,6 +240,42 @@ namespace Finanzas_Generico.Manager
                 }
             }
             return listPro;
+        }
+
+        public static int ActualizarCantidadProducto(String codigo, int cantidad, int usuarioModifica)
+        {
+            int binario = 0;
+            using (MySqlCommand cmd = new MySqlCommand())
+            {
+                try
+                {
+                    // setear parametros del command
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Connection = ConexionDB.Conexion();
+                    cmd.CommandText = "SpProductoActualizarCantidad";
+
+                    //asignar paramentros
+                    cmd.Parameters.AddWithValue("p_codigo", codigo);
+                    cmd.Parameters.AddWithValue("p_cantidad", cantidad);
+                    cmd.Parameters.AddWithValue("p_usuarioModifica", usuarioModifica);
+
+                    //abrir la conexion
+                    ConexionDB.Conexion().Open();
+
+                    //ejecutar el query
+                    binario = cmd.ExecuteNonQuery();
+                    
+                }
+                catch (MySqlException ex)
+                {
+                    throw ex;
+                }
+                finally
+                {
+                    ConexionDB.Conexion().Close();
+                } // end try
+            } // end using
+            return binario;
         }
     }
 }
