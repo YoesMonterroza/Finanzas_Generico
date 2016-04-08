@@ -6,7 +6,7 @@ using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
-//editado
+//editado 2
 namespace Finanzas_Generico.Conexion
 {
     public static class Utilidades
