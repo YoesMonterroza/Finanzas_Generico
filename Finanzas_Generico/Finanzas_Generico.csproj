@@ -36,7 +36,10 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="MySql.Data, Version=6.9.8.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
-    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL" />
+    <Reference Include="Newtonsoft.Json, Version=8.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.8.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
@@ -58,6 +61,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Conexion\ConexionDB.cs" />
+    <Compile Include="Conexion\Utilidades.cs" />
     <Compile Include="Entidades\Persona.cs" />
     <Compile Include="Entidades\Producto.cs" />
     <Compile Include="Entidades\Usuario.cs" />
@@ -86,6 +90,12 @@
     </Compile>
     <Compile Include="Vistas\ListaProductos.xaml.cs">
       <DependentUpon>ListaProductos.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Vistas\NuevaContrasena.xaml.cs">
+      <DependentUpon>NuevaContrasena.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Vistas\RecuperarContrasena.xaml.cs">
+      <DependentUpon>RecuperarContrasena.xaml</DependentUpon>
     </Compile>
     <Compile Include="Vistas\VentanaInicio.xaml.cs">
       <DependentUpon>VentanaInicio.xaml</DependentUpon>
@@ -130,6 +140,14 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Vistas\NuevaContrasena.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Vistas\RecuperarContrasena.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Vistas\VentanaInicio.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -153,6 +171,7 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

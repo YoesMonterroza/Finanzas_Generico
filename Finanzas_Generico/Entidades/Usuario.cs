@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Finanzas_Generico.Entidades
 {
@@ -16,5 +12,13 @@ namespace Finanzas_Generico.Entidades
         public DateTime fechaCreacion { get; set; }
         public DateTime fechaModificacion { get; set; }
         public DateTime usuarioModifica { get; set; }
+        public int pregunta { get; set; }
+        public string Respuesta { get; set; }
+    }
+
+    public struct Preguntas
+    {
+        public int id { get; set; }
+        public string pregunta { get; set; }
     }
 }
