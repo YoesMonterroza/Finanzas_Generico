@@ -4,6 +4,7 @@ using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Configuration;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
@@ -25,6 +26,7 @@ namespace Finanzas_Generico.Vistas
         public GenerarFactura()
         {
             InitializeComponent();
+            this.Title = string.Format(ConfigurationManager.AppSettings["formatoTitulos"].ToString(), Conexion.Utilidades.Usuario, "Registrar venta");
             AdministrarVenta af = new AdministrarVenta();
             captura = af.ObtenerConsecutivo();
             lbl_nrofactura.Content = "Codigo de factura: " + captura[1];
@@ -158,7 +160,6 @@ namespace Finanzas_Generico.Vistas
             else
             {
                 LLenarTabla();
-                
             }
         }
 
@@ -174,7 +175,7 @@ namespace Finanzas_Generico.Vistas
             decimal sumaStotal = 0;
             int.TryParse(txt_CantidadProducto.Text, out capturarCantidad);
             decimal.TryParse(txt_SubTotal.Text, out capturaSTotal);
-            
+
             ListaProductoVenta lpv = new ListaProductoVenta();
             if (dg_ListaProductos.SelectedIndex >= 0 && capturarCantidad > 0)
             {
@@ -194,7 +195,8 @@ namespace Finanzas_Generico.Vistas
                 txt_SubTotal.Text = sumaStotal.ToString();
                 txt_Total.Text = sumaStotal.ToString();
             }
-            else if (capturarCantidad == 0) {
+            else if (capturarCantidad == 0)
+            {
                 MessageBox.Show("Debe asignar una cantidad!");
             }
 
@@ -230,7 +232,7 @@ namespace Finanzas_Generico.Vistas
 
             ListaProductoVenta lpv = new ListaProductoVenta();
             if (dg_ListaProductos.SelectedIndex >= 0)
-            {                
+            {
                 lpv = (ListaProductoVenta)dg_ListaProductosVenta.SelectedValue;
                 restaStotal = capturaSTotal - lpv.precioTotal;
 
@@ -239,7 +241,6 @@ namespace Finanzas_Generico.Vistas
 
                 txt_SubTotal.Text = restaStotal.ToString();
                 txt_Total.Text = restaStotal.ToString();
-
             }
         }
 
@@ -251,7 +252,6 @@ namespace Finanzas_Generico.Vistas
             Venta vt = new Venta();
             AdministrarVenta av = new AdministrarVenta();
 
-
             vt.setCodigo(captura[0]);
             vt.setIdentificacion(txt_Identificacion.Text);
             vt.setListaProductos(JsonConvert.SerializeObject(lProVent));
@@ -259,7 +259,7 @@ namespace Finanzas_Generico.Vistas
             vt.setDescuento(decimal.Parse(txt_Descuento.Text));
             vt.setTotal(decimal.Parse(txt_Total.Text));
             vt.setTipoPago(cb_TipoPago.SelectedIndex.ToString());
-            if(cb_TipoPago.SelectedIndex == 1)
+            if (cb_TipoPago.SelectedIndex == 1)
             {
                 vt.setMontoAbono(decimal.Parse(txt_ValorAbono.Text));
             }
@@ -283,14 +283,11 @@ namespace Finanzas_Generico.Vistas
 
             if (cb_GenerarPdf.IsChecked.Value)
             {
-                
             }
         }
 
         private void btn_Nuevo_Click(object sender, RoutedEventArgs e)
         {
-
         }
-
     }
 }

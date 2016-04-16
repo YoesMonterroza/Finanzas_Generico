@@ -3,6 +3,7 @@ using Finanzas_Generico.Manager;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Configuration;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -22,14 +23,15 @@ namespace Finanzas_Generico.Vistas
     /// </summary>
     public partial class ListaProductos : Window
     {
-        ICollectionView IcvProductos;
+        private ICollectionView IcvProductos;
 
         public ListaProductos()
         {
             InitializeComponent();
+            this.Title = string.Format(ConfigurationManager.AppSettings["formatoTitulos"].ToString(), Conexion.Utilidades.Usuario, "Lista de Productos");
             LLenarTabla();
         }
-        
+
         public void LLenarTabla()
         {
             IcvProductos = CollectionViewSource.GetDefaultView(AdministrarProducto.ListaProductos());
@@ -55,7 +57,8 @@ namespace Finanzas_Generico.Vistas
                              where pro.nombre.Contains(txt_filtro.Text)
                              select new { pro.codigo, pro.nombre, pro.precio, pro.cantidad, pro.cantidadMinima, pro.descripcion };
 
-                foreach (var fil in filtro){
+                foreach (var fil in filtro)
+                {
                     lp.codigo = fil.codigo;
                     lp.nombre = fil.nombre;
                     lp.precio = fil.precio;

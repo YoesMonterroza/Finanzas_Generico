@@ -5,29 +5,28 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Finanzas_Generico.Vistas"
         mc:Ignorable="d"
-        Title="Actualizar Producto" Height="400" Width="310" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" ShowInTaskbar="False" Icon="/Finanzas_Generico;component/Imagenes/Iconos/IconoLibro1.png">
+        Title="" Height="400" Width="310" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" ShowInTaskbar="False" Icon="/Finanzas_Generico;component/Imagenes/Iconos/IconoLibro1.png">
     <Grid>
-        <Label x:Name="label" Content="Codigo" HorizontalAlignment="Left" Margin="20,30,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="txt_CodProducto" HorizontalAlignment="Left" Height="23" Margin="81,32,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <Button x:Name="ConsultarProducto" Content="Consultar" HorizontalAlignment="Left" Margin="207,30,0,0" VerticalAlignment="Top" Width="75" Click="ConsultarProducto_Click"/>
-        <Label x:Name="label_Copy" Content="Nombre" HorizontalAlignment="Left" Margin="19,65,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.5,1.731"/>
-        <Label x:Name="label_Copy1" Content="Cantidad" HorizontalAlignment="Left" Margin="19,96,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="label_Copy2" Content="Cantidad minima" HorizontalAlignment="Left" Margin="19,127,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="label_Copy3" Content="Precio" HorizontalAlignment="Left" Margin="19,158,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="txt_Nombre" HorizontalAlignment="Left" Height="23" Margin="150,68,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="txt_Cantidad" HorizontalAlignment="Left" Height="23" Margin="150,99,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="txt_CantidadMinima" HorizontalAlignment="Left" Height="23" Margin="150,130,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" RenderTransformOrigin="0.458,-0.609"/>
-        <TextBox x:Name="txt_Precio" HorizontalAlignment="Left" Height="23" Margin="150,161,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <Label x:Name="label_Copy4" Content="Estado" HorizontalAlignment="Left" Margin="18,190,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="label" Content="Codigo" HorizontalAlignment="Left" Margin="20,30,0,0" VerticalAlignment="Top" />
+        <TextBox x:Name="txt_CodProducto" HorizontalAlignment="Left" Height="23" Margin="81,32,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" />
+        <Button x:Name="ConsultarProducto" Content="Consultar" HorizontalAlignment="Left" Margin="207,30,0,0" VerticalAlignment="Top" Width="75" Click="ConsultarProducto_Click" />
+        <Label x:Name="label_Copy" Content="Nombre" HorizontalAlignment="Left" Margin="19,65,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.5,1.731" />
+        <Label x:Name="label_Copy1" Content="Cantidad" HorizontalAlignment="Left" Margin="19,96,0,0" VerticalAlignment="Top" />
+        <Label x:Name="label_Copy2" Content="Cantidad minima" HorizontalAlignment="Left" Margin="19,127,0,0" VerticalAlignment="Top" />
+        <Label x:Name="label_Copy3" Content="Precio" HorizontalAlignment="Left" Margin="19,158,0,0" VerticalAlignment="Top" />
+        <TextBox x:Name="txt_Nombre" HorizontalAlignment="Left" Height="23" Margin="150,68,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" />
+        <TextBox x:Name="txt_Cantidad" HorizontalAlignment="Left" Height="23" Margin="150,99,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" />
+        <TextBox x:Name="txt_CantidadMinima" HorizontalAlignment="Left" Height="23" Margin="150,130,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" RenderTransformOrigin="0.458,-0.609" />
+        <TextBox x:Name="txt_Precio" HorizontalAlignment="Left" Height="23" Margin="150,161,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" />
+        <Label x:Name="label_Copy4" Content="Estado" HorizontalAlignment="Left" Margin="18,190,0,0" VerticalAlignment="Top" />
         <ComboBox x:Name="cb_Estado" HorizontalAlignment="Left" Margin="149,193,0,0" VerticalAlignment="Top" Width="120">
-            <ComboBoxItem x:Name="cbi_Actino" Content="Activo"/>
-            <ComboBoxItem x:Name="cbi_NoActivo" Content="No activo"/>
+            <ComboBoxItem x:Name="cbi_Actino" Content="Activo" />
+            <ComboBoxItem x:Name="cbi_NoActivo" Content="No activo" />
         </ComboBox>
-        <Button x:Name="btn_Actualizar" Content="Actualizar" HorizontalAlignment="Left" Margin="17,328,0,0" VerticalAlignment="Top" Width="75" Click="btn_Actualizar_Click"/>
-        <Button x:Name="btn_Nuevo" Content="Nuevo" HorizontalAlignment="Left" Margin="106,328,0,0" VerticalAlignment="Top" Width="75" Click="btn_Nuevo_Click"/>
-        <Button x:Name="btn_Salir" Content="Salir" HorizontalAlignment="Left" Margin="197,328,0,0" VerticalAlignment="Top" Width="75" Click="btn_Salir_Click"/>
-        <Label x:Name="lbl_descripcion" Content="Descripción" HorizontalAlignment="Left" Margin="20,221,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.421,0.577"/>
-        <TextBox x:Name="txt_descripcion" HorizontalAlignment="Left" Height="71" Margin="20,252,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="249"/>
-
+        <Button x:Name="btn_Actualizar" Content="Actualizar" HorizontalAlignment="Left" Margin="17,328,0,0" VerticalAlignment="Top" Width="75" Click="btn_Actualizar_Click" />
+        <Button x:Name="btn_Nuevo" Content="Nuevo" HorizontalAlignment="Left" Margin="106,328,0,0" VerticalAlignment="Top" Width="75" Click="btn_Nuevo_Click" />
+        <Button x:Name="btn_Salir" Content="Salir" HorizontalAlignment="Left" Margin="197,328,0,0" VerticalAlignment="Top" Width="75" Click="btn_Salir_Click" />
+        <Label x:Name="lbl_descripcion" Content="Descripción" HorizontalAlignment="Left" Margin="20,221,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.421,0.577" />
+        <TextBox x:Name="txt_descripcion" HorizontalAlignment="Left" Height="71" Margin="20,252,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="249" />
     </Grid>
 </Window>

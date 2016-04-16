@@ -40,9 +40,10 @@ namespace Finanzas_Generico
             {
                 if (usuario.pass.Equals(pass))
                 {
-                    this.Hide();
+                    Utilidades.Usuario = usuario.nick;
                     VentanaInicio vi = new VentanaInicio();
                     vi.ShowDialog();
+                    this.Close();
                 }
                 else
                 {

@@ -1,5 +1,8 @@
-﻿using System;
+﻿using Finanzas_Generico.Entidades;
+using Finanzas_Generico.Manager;
+using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,8 +14,6 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-using Finanzas_Generico.Entidades;
-using Finanzas_Generico.Manager;
 
 namespace Finanzas_Generico.Vistas
 {
@@ -26,6 +27,7 @@ namespace Finanzas_Generico.Vistas
         public ActualizarProducto()
         {
             InitializeComponent();
+            this.Title = string.Format(ConfigurationManager.AppSettings["formatoTitulos"].ToString(), Conexion.Utilidades.Usuario, "Actualizar Producto");
         }
 
         public ActualizarProducto(String cod_Producto)
@@ -55,8 +57,8 @@ namespace Finanzas_Generico.Vistas
             Producto pr = new Producto();
             pr = ap.ConsultarProducto(txt_CodProducto.Text);
 
-            txt_Nombre.Text = Convert.ToString(pr.nombre); 
-            txt_Cantidad.Text = Convert.ToString(pr.cantidad); 
+            txt_Nombre.Text = Convert.ToString(pr.nombre);
+            txt_Cantidad.Text = Convert.ToString(pr.cantidad);
             txt_CantidadMinima.Text = Convert.ToString(pr.cantidadMinima);
             txt_Precio.Text = Convert.ToString(pr.precio);
             cb_Estado.SelectedIndex = Convert.ToInt32(pr.estado);
@@ -70,7 +72,7 @@ namespace Finanzas_Generico.Vistas
             LimpiarCampos();
             this.Close();
 
-            if(origenListaProducto == true)
+            if (origenListaProducto == true)
             {
                 origenListaProducto = false;
                 ListaProductos lp = new ListaProductos();
@@ -81,8 +83,8 @@ namespace Finanzas_Generico.Vistas
         public void LimpiarCampos()
         {
             txt_CodProducto.Text = "";
-            txt_Nombre.Text =  "";
-            txt_Cantidad.Text = ""; 
+            txt_Nombre.Text = "";
+            txt_Cantidad.Text = "";
             txt_CantidadMinima.Text = "";
             txt_Precio.Text = "";
             cb_Estado.SelectedIndex = -1;
@@ -110,16 +112,15 @@ namespace Finanzas_Generico.Vistas
             p.descripcion = txt_descripcion.Text;
             p.usuarioModifica = 0;
             capturarBinario = AdministrarProducto.ActualizarProducto(p);
-            
 
-            if (capturarBinario == 1){
+            if (capturarBinario == 1)
+            {
                 LimpiarCampos();
                 MessageBox.Show("Producto actualizado.");
             }
-            else { 
+            else {
                 MessageBox.Show("Error al actualizar");
             }
         }
-        
     }
 }
