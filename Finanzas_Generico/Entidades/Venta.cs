@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Finanzas_Generico.Entidades
 {
@@ -21,7 +17,8 @@ namespace Finanzas_Generico.Entidades
         private DateTime fechaCreacion;// { get; set; }
         private DateTime fechaModificacion;// { get; set; }
 
-        public string Codigo() {
+        public string Codigo()
+        {
             return codigo;
         }
 

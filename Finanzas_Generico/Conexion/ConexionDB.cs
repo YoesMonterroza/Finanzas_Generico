@@ -1,18 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using MySql.Data.MySqlClient;
 
 namespace Finanzas_Generico.Conexion
 {
     public class ConexionDB
     {
         private static MySqlConnection connMY = new MySqlConnection();
-        MySqlConnection Conn = new MySqlConnection();
-        string connString;
+        private MySqlConnection Conn = new MySqlConnection();
+        private string connString;
 
         public ConexionDB()
         {
@@ -33,7 +30,6 @@ namespace Finanzas_Generico.Conexion
             {
                 MessageBox.Show("Error en inicializar conexion" + me);
             }
-
         }
 
         private static string CrearCadena()
@@ -54,7 +50,6 @@ namespace Finanzas_Generico.Conexion
 
             return Convert.ToString(sCadena);
         } // end CrearConexion()
-
 
         public static MySqlConnection Conexion()
         {
