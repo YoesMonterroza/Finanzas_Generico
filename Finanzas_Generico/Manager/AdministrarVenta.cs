@@ -2,15 +2,11 @@
 using Finanzas_Generico.Entidades;
 using MySql.Data.MySqlClient;
 using System;
-using System.Collections.Generic;
 using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Finanzas_Generico.Manager
 {
-    class AdministrarVenta
+    internal class AdministrarVenta
     {
         public String[] ObtenerConsecutivo()
         {
@@ -20,8 +16,8 @@ namespace Finanzas_Generico.Manager
 
             String[] arrayString = new String[2];
 
-            using (MySqlCommand cmd = new MySqlCommand()) {
-
+            using (MySqlCommand cmd = new MySqlCommand())
+            {
                 try
                 {
                     ConexionDB.Conexion().Open();
@@ -48,26 +44,32 @@ namespace Finanzas_Generico.Manager
                         case 1:
                             consecutivoGenerado = "000000" + consecutivo;
                             break;
+
                         case 2:
                             consecutivoGenerado = "00000" + consecutivo;
                             break;
+
                         case 3:
                             consecutivoGenerado = "0000" + consecutivo;
                             break;
+
                         case 4:
                             consecutivoGenerado = "000" + consecutivo;
                             break;
+
                         case 5:
                             consecutivoGenerado = "00" + consecutivo;
                             break;
+
                         case 6:
                             consecutivoGenerado = "0" + consecutivo;
                             break;
+
                         case 7:
                             consecutivoGenerado = "" + consecutivo;
                             break;
 
-                        default:                            
+                        default:
                             break;
                     }
                     arrayString[0] = consecutivo;
@@ -75,7 +77,6 @@ namespace Finanzas_Generico.Manager
                 }
                 catch (Exception)
                 {
-
                     throw;
                 }
                 finally
@@ -116,7 +117,6 @@ namespace Finanzas_Generico.Manager
 
                     //ejecutar el query
                     binario = cmd.ExecuteNonQuery();
-                    
                 }
                 catch (MySqlException ex)
                 {

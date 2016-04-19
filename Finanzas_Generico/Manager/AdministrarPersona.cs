@@ -4,9 +4,6 @@ using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Finanzas_Generico.Manager
 {
@@ -58,7 +55,7 @@ namespace Finanzas_Generico.Manager
             } // end using
             return binario;
         } // end InsertarUsuario
-        
+
         public Persona ConsultarPersona(String sIdentificacion)
         {
             Persona per = new Persona();
@@ -73,7 +70,7 @@ namespace Finanzas_Generico.Manager
                     cmd.Connection = ConexionDB.Conexion();
                     cmd.CommandText = "SpPersonaConsultar";
                     cmd.Parameters.AddWithValue("p_identificacion", sIdentificacion);
-                    
+
                     MySqlDataReader lectorProductos;
                     lectorProductos = cmd.ExecuteReader();
 

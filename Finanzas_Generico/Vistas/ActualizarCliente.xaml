@@ -5,37 +5,35 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Finanzas_Generico.Vistas"
         mc:Ignorable="d"
-        Title="Actualizar Cliente" Height="350" Width="510" ResizeMode="NoResize" Topmost="True" WindowStartupLocation="CenterScreen" Icon="/Finanzas_Generico;component/Imagenes/Iconos/IconoLibro1.png">
+        Title="" Height="350" Width="510" ResizeMode="NoResize" Topmost="True" WindowStartupLocation="CenterScreen" Icon="/Finanzas_Generico;component/Imagenes/Iconos/IconoLibro1.png">
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
-            <ColumnDefinition Width="0*"/>
+            <ColumnDefinition />
+            <ColumnDefinition Width="0*" />
         </Grid.ColumnDefinitions>
-        <Label x:Name="lbl_Identificacion" Content="Identificación" HorizontalAlignment="Left" Margin="21,51,0,0" VerticalAlignment="Top" Height="26" Width="81"/>
-        <Label x:Name="lbl_Nombres" Content="Nombres" HorizontalAlignment="Left" Margin="21,90,0,0" VerticalAlignment="Top" Height="26" Width="59"/>
-        <Label x:Name="lbl_Apellidos" Content="apellidos" HorizontalAlignment="Left" Margin="257,89,0,0" VerticalAlignment="Top" Height="26" Width="57"/>
-        <Label x:Name="lbl_Telefono" Content="Telefono" HorizontalAlignment="Left" Margin="25,129,0,0" VerticalAlignment="Top" Height="26" Width="56"/>
-        <Label x:Name="lbl_Correo" Content="Correo" HorizontalAlignment="Left" Margin="257,128,0,0" VerticalAlignment="Top" Height="26" Width="46"/>
-        <Label x:Name="lbl_Direccion" Content="Dirección" HorizontalAlignment="Left" Margin="25,168,0,0" VerticalAlignment="Top" Height="26" Width="60"/>
-        <Label x:Name="lbl_Estado" Content="Estado" HorizontalAlignment="Left" Margin="257,167,0,0" VerticalAlignment="Top" Height="26" Width="45"/>
-        <TextBox x:Name="txt_Identificacion" HorizontalAlignment="Left" Height="23" Margin="105,53,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="138"/>
-        <TextBox x:Name="txt_Nombres" HorizontalAlignment="Left" Height="23" Margin="105,92,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="138"/>
-        <TextBox x:Name="txt_Apellidos" HorizontalAlignment="Left" Height="23" Margin="319,91,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="157"/>
-        <TextBox x:Name="txt_Telefono" HorizontalAlignment="Left" Height="23" Margin="105,131,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="138"/>
-        <TextBox x:Name="txt_Correo" HorizontalAlignment="Left" Height="23" Margin="319,131,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="157"/>
-        <TextBox x:Name="txt_Direccion" HorizontalAlignment="Left" Height="23" Margin="105,170,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="138"/>
-        <Button x:Name="btn_Actualizar" Content="Actualizar" HorizontalAlignment="Left" Margin="221,283,0,0" VerticalAlignment="Top" Width="75" Click="btn_Actualizar_Click" Height="22"/>
-        <Button x:Name="btn_Nuevo" Content="Nuevo" HorizontalAlignment="Left" Margin="310,283,0,0" VerticalAlignment="Top" Width="75" Click="btn_Nuevo_Click" Height="22"/>
-        <Button x:Name="btn_Salir" Content="Salir" HorizontalAlignment="Left" Margin="401,283,0,0" VerticalAlignment="Top" Width="75" Click="btn_Salir_Click" Height="22"/>
+        <Label x:Name="lbl_Identificacion" Content="Identificación" HorizontalAlignment="Left" Margin="21,51,0,0" VerticalAlignment="Top" Height="26" Width="81" />
+        <Label x:Name="lbl_Nombres" Content="Nombres" HorizontalAlignment="Left" Margin="21,90,0,0" VerticalAlignment="Top" Height="26" Width="59" />
+        <Label x:Name="lbl_Apellidos" Content="apellidos" HorizontalAlignment="Left" Margin="257,89,0,0" VerticalAlignment="Top" Height="26" Width="57" />
+        <Label x:Name="lbl_Telefono" Content="Telefono" HorizontalAlignment="Left" Margin="25,129,0,0" VerticalAlignment="Top" Height="26" Width="56" />
+        <Label x:Name="lbl_Correo" Content="Correo" HorizontalAlignment="Left" Margin="257,128,0,0" VerticalAlignment="Top" Height="26" Width="46" />
+        <Label x:Name="lbl_Direccion" Content="Dirección" HorizontalAlignment="Left" Margin="25,168,0,0" VerticalAlignment="Top" Height="26" Width="60" />
+        <Label x:Name="lbl_Estado" Content="Estado" HorizontalAlignment="Left" Margin="257,167,0,0" VerticalAlignment="Top" Height="26" Width="45" />
+        <TextBox x:Name="txt_Identificacion" HorizontalAlignment="Left" Height="23" Margin="105,53,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="138" />
+        <TextBox x:Name="txt_Nombres" HorizontalAlignment="Left" Height="23" Margin="105,92,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="138" />
+        <TextBox x:Name="txt_Apellidos" HorizontalAlignment="Left" Height="23" Margin="319,91,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="157" />
+        <TextBox x:Name="txt_Telefono" HorizontalAlignment="Left" Height="23" Margin="105,131,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="138" />
+        <TextBox x:Name="txt_Correo" HorizontalAlignment="Left" Height="23" Margin="319,131,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="157" />
+        <TextBox x:Name="txt_Direccion" HorizontalAlignment="Left" Height="23" Margin="105,170,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="138" />
+        <Button x:Name="btn_Actualizar" Content="Actualizar" HorizontalAlignment="Left" Margin="221,283,0,0" VerticalAlignment="Top" Width="75" Click="btn_Actualizar_Click" Height="22" />
+        <Button x:Name="btn_Nuevo" Content="Nuevo" HorizontalAlignment="Left" Margin="310,283,0,0" VerticalAlignment="Top" Width="75" Click="btn_Nuevo_Click" Height="22" />
+        <Button x:Name="btn_Salir" Content="Salir" HorizontalAlignment="Left" Margin="401,283,0,0" VerticalAlignment="Top" Width="75" Click="btn_Salir_Click" Height="22" />
         <ComboBox x:Name="cb_Estado" HorizontalAlignment="Left" Margin="319,171,0,0" VerticalAlignment="Top" Width="156" Height="22">
-            <ListBoxItem Name="lbi_PazSalvo" Content="Paz y salvo" IsSelected="True"/>
-            <ListBoxItem Name="lbi_Deudor" Content="deudor"/>
-
+            <ListBoxItem Name="lbi_PazSalvo" Content="Paz y salvo" IsSelected="True" />
+            <ListBoxItem Name="lbi_Deudor" Content="deudor" />
         </ComboBox>
-        <Label x:Name="lbl_Titulo" Content="Actualizar Cliente" HorizontalAlignment="Left" Margin="193,10,0,0" VerticalAlignment="Top" Height="26" Width="102"/>
-        <Button x:Name="btn_Buscar" Content="Buscar" HorizontalAlignment="Left" Margin="257,53,0,0" VerticalAlignment="Top" Width="75" Click="btn_Buscar_Click" Height="22"/>
-        <Label x:Name="lbl_Estado_Copy" Content="Observaciones" HorizontalAlignment="Left" Margin="24,192,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.276,0.615" Height="26" Width="87"/>
-        <TextBox x:Name="txt_Observaciones" HorizontalAlignment="Left" Height="47" Margin="25,218,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="450"/>
-
+        <Label x:Name="lbl_Titulo" Content="Actualizar Cliente" HorizontalAlignment="Left" Margin="193,10,0,0" VerticalAlignment="Top" Height="26" Width="102" />
+        <Button x:Name="btn_Buscar" Content="Buscar" HorizontalAlignment="Left" Margin="257,53,0,0" VerticalAlignment="Top" Width="75" Click="btn_Buscar_Click" Height="22" />
+        <Label x:Name="lbl_Estado_Copy" Content="Observaciones" HorizontalAlignment="Left" Margin="24,192,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.276,0.615" Height="26" Width="87" />
+        <TextBox x:Name="txt_Observaciones" HorizontalAlignment="Left" Height="47" Margin="25,218,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="450" />
     </Grid>
 </Window>

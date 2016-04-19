@@ -1,7 +1,6 @@
 ﻿using Finanzas_Generico.Entidades;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows;
@@ -16,6 +15,7 @@ namespace Finanzas_Generico.Vistas
         public VentanaInicio()
         {
             InitializeComponent();
+            this.Title = string.Format("Bienvenido {0}", Conexion.Utilidades.Usuario);
         }
 
         private void miAgregarProducto_Click(object sender, RoutedEventArgs e)
@@ -125,7 +125,5 @@ namespace Finanzas_Generico.Vistas
 
             //MessageBox.Show(jsonObjet1[0]["codigo"].ToString());
         }
-
-        
     }
 }

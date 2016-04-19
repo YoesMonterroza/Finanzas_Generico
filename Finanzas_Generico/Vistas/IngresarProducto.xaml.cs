@@ -1,18 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
-using Finanzas_Generico.Entidades;
+﻿using Finanzas_Generico.Entidades;
 using Finanzas_Generico.Manager;
+using System;
+using System.Configuration;
+using System.Windows;
 
 namespace Finanzas_Generico.Vistas
 {
@@ -24,6 +14,7 @@ namespace Finanzas_Generico.Vistas
         public IngresarProducto()
         {
             InitializeComponent();
+            this.Title = string.Format(ConfigurationManager.AppSettings["formatoTitulos"].ToString(), Conexion.Utilidades.Usuario, "Ingresar Producto");
             txt_Codigo.Focus();
             cb_Estado.SelectedIndex = 0;
         }
@@ -48,7 +39,6 @@ namespace Finanzas_Generico.Vistas
             else
                 MessageBox.Show("Error al guardar");
         }
-
 
         public void LimpiarCampos()
         {

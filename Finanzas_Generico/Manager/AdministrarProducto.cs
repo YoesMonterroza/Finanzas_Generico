@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using MySql.Data.MySqlClient;
-using System.Data;
-using Finanzas_Generico.Conexion;
+﻿using Finanzas_Generico.Conexion;
 using Finanzas_Generico.Entidades;
+using MySql.Data.MySqlClient;
+using System;
+using System.Collections.Generic;
+using System.Data;
 
 namespace Finanzas_Generico.Manager
 {
@@ -42,7 +39,6 @@ namespace Finanzas_Generico.Manager
 
                     //ejecutar el query
                     binario = cmd.ExecuteNonQuery();
-                    
                 }
                 catch (MySqlException ex)
                 {
@@ -80,7 +76,7 @@ namespace Finanzas_Generico.Manager
 
                     //String nombre;
                     //nombre = Convert.ToString(lectorProductos["nombre"]);
-                    
+
                     if (lectorProductos.HasRows)
                     {
                         while (lectorProductos.Read())
@@ -94,7 +90,7 @@ namespace Finanzas_Generico.Manager
                             pr.descripcion = Convert.ToString(lectorProductos["descripcion"]);
                             pr.usuarioModifica = Convert.ToInt32(lectorProductos["usuarioModifica"]);
                         }
-                    }                    
+                    }
                 }
                 catch (MySqlException ex)
                 {
@@ -136,7 +132,6 @@ namespace Finanzas_Generico.Manager
 
                     //ejecutar el query
                     binario = cmd.ExecuteNonQuery();
-                    
                 }
                 catch (MySqlException ex)
                 {
@@ -165,10 +160,10 @@ namespace Finanzas_Generico.Manager
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.Connection = ConexionDB.Conexion();
                     cmd.CommandText = "SpProductoListar";
-                    
+
                     MySqlDataReader lectorProductos;
                     lectorProductos = cmd.ExecuteReader();
-                    
+
                     if (lectorProductos.HasRows)
                     {
                         while (lectorProductos.Read())
@@ -264,7 +259,6 @@ namespace Finanzas_Generico.Manager
 
                     //ejecutar el query
                     binario = cmd.ExecuteNonQuery();
-                    
                 }
                 catch (MySqlException ex)
                 {

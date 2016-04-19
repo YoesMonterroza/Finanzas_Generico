@@ -2,15 +2,16 @@
 using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
-using System.Threading.Tasks;
+
 //editado 2
 namespace Finanzas_Generico.Conexion
 {
-    public static class Utilidades
+    public class Utilidades
     {
+        public static string Usuario { get; set; }
+
         public static string ConvertirHash(string cad)
         {
             SHA1 sha1 = new SHA1CryptoServiceProvider();
@@ -23,8 +24,6 @@ namespace Finanzas_Generico.Conexion
         {
             using (MySqlCommand cmd = new MySqlCommand())
             {
-                //try
-                //{
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Connection = ConexionDB.Conexion();
                 cmd.CommandText = nameProcedure;
@@ -39,11 +38,6 @@ namespace Finanzas_Generico.Conexion
                 ConexionDB.Conexion().Open();
                 MySqlDataReader l = cmd.ExecuteReader();
                 return l;
-                //}
-                //finally
-                //{
-                //    ConexionDB.Conexion().Close();
-                //}
             }
         }
     }

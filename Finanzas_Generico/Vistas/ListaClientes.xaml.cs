@@ -1,19 +1,12 @@
 ﻿using Finanzas_Generico.Entidades;
 using Finanzas_Generico.Manager;
-using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Configuration;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace Finanzas_Generico.Vistas
 {
@@ -22,11 +15,12 @@ namespace Finanzas_Generico.Vistas
     /// </summary>
     public partial class ListaClientes : Window
     {
-        ICollectionView IcvClientes;
+        private ICollectionView IcvClientes;
 
         public ListaClientes()
         {
             InitializeComponent();
+            this.Title = string.Format(ConfigurationManager.AppSettings["formatoTitulos"].ToString(), Conexion.Utilidades.Usuario, "Lista de Clientes");
             LLenarTabla();
         }
 
@@ -46,15 +40,14 @@ namespace Finanzas_Generico.Vistas
         private void txt_filtro_TextChanged(object sender, TextChangedEventArgs e)
         {
             ICollectionView IcvClientesFiltro;
-            List<ListaPersona> listper= new List<ListaPersona>();
+            List<ListaPersona> listper = new List<ListaPersona>();
             ListaPersona lp = new ListaPersona();
-
 
             if (txt_filtro.Text != "" && txt_filtro.Text.Length > 2)
             {
                 var filtro = from cli in AdministrarPersona.ListaPersonas()
                              where cli.Nombre.Contains(txt_filtro.Text)
-                             select new { cli.Identificación, cli.Nombre, cli.Telefono, cli.Correo, cli.Dirección, cli.Observaciones};
+                             select new { cli.Identificación, cli.Nombre, cli.Telefono, cli.Correo, cli.Dirección, cli.Observaciones };
 
                 foreach (var fil in filtro)
                 {

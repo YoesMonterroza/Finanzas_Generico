@@ -1,18 +1,8 @@
 ﻿using Finanzas_Generico.Entidades;
 using Finanzas_Generico.Manager;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Configuration;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace Finanzas_Generico.Vistas
 {
@@ -24,6 +14,7 @@ namespace Finanzas_Generico.Vistas
         public ActualizarCliente()
         {
             InitializeComponent();
+            this.Title = string.Format(ConfigurationManager.AppSettings["formatoTitulos"].ToString(), Conexion.Utilidades.Usuario, "Actualizar Cliente");
             txt_Identificacion.Focus();
         }
 
@@ -59,7 +50,7 @@ namespace Finanzas_Generico.Vistas
             AdministrarPersona ap = new AdministrarPersona();
             Persona per = new Persona();
             per = ap.ConsultarPersona(txt_Identificacion.Text);
-            
+
             txt_Nombres.Text = per.nombres;
             txt_Apellidos.Text = per.apellidos;
             txt_Direccion.Text = per.direccion;
@@ -86,13 +77,13 @@ namespace Finanzas_Generico.Vistas
             p.observaciones = txt_Observaciones.Text;
             p.usuarioModifica = 0;
             capturarBinario = AdministrarPersona.ActualizarPersona(p);
-            
 
-            if (capturarBinario == 1) { 
+            if (capturarBinario == 1)
+            {
                 LimpiarCampos();
                 MessageBox.Show("Perona actualizada.");
             }
-            else { 
+            else {
                 MessageBox.Show("Error al actualizar");
             }
         }
@@ -101,7 +92,6 @@ namespace Finanzas_Generico.Vistas
         {
             LimpiarCampos();
         }
-
 
         public void LimpiarCampos()
         {
