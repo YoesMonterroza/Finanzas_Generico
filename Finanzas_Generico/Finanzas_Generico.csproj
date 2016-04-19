@@ -66,15 +66,28 @@
     <Compile Include="Entidades\Producto.cs" />
     <Compile Include="Entidades\Usuario.cs" />
     <Compile Include="Entidades\Venta.cs" />
+    <Compile Include="finanzasdbDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>finanzasdbDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Manager\AdministrarVenta.cs" />
     <Compile Include="Manager\AdministrarPersona.cs" />
     <Compile Include="Manager\AdministrarProducto.cs" />
     <Compile Include="Manager\AdministrarUsuario.cs" />
+    <Compile Include="PuertosDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PuertosDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Vistas\ActualizarCliente.xaml.cs">
       <DependentUpon>ActualizarCliente.xaml</DependentUpon>
     </Compile>
     <Compile Include="Vistas\ActualizarProducto.xaml.cs">
       <DependentUpon>ActualizarProducto.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Vistas\ConsultarVentas.xaml.cs">
+      <DependentUpon>ConsultarVentas.xaml</DependentUpon>
     </Compile>
     <Compile Include="Vistas\GenerarFactura.xaml.cs">
       <DependentUpon>GenerarFactura.xaml</DependentUpon>
@@ -117,6 +130,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Vistas\ActualizarProducto.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Vistas\ConsultarVentas.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -171,12 +188,34 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="finanzasdbDataSet.xsc">
+      <DependentUpon>finanzasdbDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="finanzasdbDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>finanzasdbDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="finanzasdbDataSet.xss">
+      <DependentUpon>finanzasdbDataSet.xsd</DependentUpon>
+    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
     <AppDesigner Include="Properties\" />
+    <None Include="PuertosDataSet.xsc">
+      <DependentUpon>PuertosDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="PuertosDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>PuertosDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="PuertosDataSet.xss">
+      <DependentUpon>PuertosDataSet.xsd</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
