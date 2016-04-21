@@ -42,6 +42,7 @@ namespace Finanzas_Generico.Vistas
 
         public void LLenarTabla()
         {
+            lProfact.Clear();
             lProfact = AdministrarProducto.ListaProductosFactura();
             IcvProductos = CollectionViewSource.GetDefaultView(lProfact);
 
@@ -300,6 +301,7 @@ namespace Finanzas_Generico.Vistas
             }
 
             LimpiarCampos();
+            LLenarTabla();
             ObtenerCodigoFactura();
             MessageBox.Show("Venta exitosa!");
 
