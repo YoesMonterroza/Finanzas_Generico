@@ -91,13 +91,14 @@ namespace Finanzas_Generico.Manager
             {
                 while (reader.Read())
                 {
-                    u.id = "ok";
+                    u.id = Convert.ToString(reader["id"]);
                     u.nick = Convert.ToString(reader["nick"]);
                     u.pass = Convert.ToString(reader["pass"]);
+                    u.resultado = "ok";
                 }
             }
             else
-                u.id = "error";
+                u.resultado = "error";
 
             ConexionDB.Conexion().Close();
             return u;

@@ -110,7 +110,7 @@ namespace Finanzas_Generico.Manager
                     cmd.Parameters.AddWithValue("P_tipoPago", vt.TipoPago());
                     cmd.Parameters.AddWithValue("p_montoAbono", vt.MontoAbono());
                     cmd.Parameters.AddWithValue("p_observacion", vt.Observacion());
-                    cmd.Parameters.AddWithValue("p_UsuarioModifica", 0);
+                    cmd.Parameters.AddWithValue("p_UsuarioModifica", vt.UsuarioModifica());
 
                     //abrir la conexion
                     ConexionDB.Conexion().Open();

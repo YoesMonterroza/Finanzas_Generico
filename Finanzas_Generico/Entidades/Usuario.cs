@@ -14,6 +14,7 @@ namespace Finanzas_Generico.Entidades
         public DateTime usuarioModifica { get; set; }
         public int pregunta { get; set; }
         public string Respuesta { get; set; }
+        public string resultado { get; set; }
     }
 
     public struct Preguntas

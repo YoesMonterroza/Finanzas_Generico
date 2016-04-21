@@ -54,7 +54,7 @@ namespace Finanzas_Generico.Vistas
             p.direccion = txt_Direccion.Text;
             p.estado = Convert.ToString(cb_Estado.SelectedIndex);
             p.observaciones = txt_Observaciones.Text;
-            p.usuarioModifica = 0;
+            p.usuarioModifica = int.Parse(Conexion.Utilidades.IdUsuario);
             capturarBinario = AdministrarPersona.InsertarPersona(p);
             LimpiarCampos();
 

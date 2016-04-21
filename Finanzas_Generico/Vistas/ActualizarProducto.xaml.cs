@@ -99,7 +99,7 @@ namespace Finanzas_Generico.Vistas
             p.precio = Decimal.Parse(txt_Precio.Text);
             p.estado = Convert.ToString(cb_Estado.SelectedIndex);
             p.descripcion = txt_descripcion.Text;
-            p.usuarioModifica = 0;
+            p.usuarioModifica = int.Parse(Conexion.Utilidades.IdUsuario);
             capturarBinario = AdministrarProducto.ActualizarProducto(p);
 
             if (capturarBinario == 1)

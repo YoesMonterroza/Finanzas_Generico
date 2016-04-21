@@ -35,6 +35,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="itextsharp">
+      <HintPath>..\..\..\..\..\Desktop\iTextSharpDemo\iTextSharpDemo\bin\Debug\itextsharp.dll</HintPath>
+    </Reference>
     <Reference Include="MySql.Data, Version=6.9.8.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
     <Reference Include="Newtonsoft.Json, Version=8.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.8.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
@@ -63,24 +66,15 @@
     </ApplicationDefinition>
     <Compile Include="Conexion\ConexionDB.cs" />
     <Compile Include="Conexion\Utilidades.cs" />
+    <Compile Include="Entidades\GenerarPdf.cs" />
     <Compile Include="Entidades\Persona.cs" />
     <Compile Include="Entidades\Producto.cs" />
     <Compile Include="Entidades\Usuario.cs" />
     <Compile Include="Entidades\Venta.cs" />
-    <Compile Include="finanzasdbDataSet.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>finanzasdbDataSet.xsd</DependentUpon>
-    </Compile>
     <Compile Include="Manager\AdministrarVenta.cs" />
     <Compile Include="Manager\AdministrarPersona.cs" />
     <Compile Include="Manager\AdministrarProducto.cs" />
     <Compile Include="Manager\AdministrarUsuario.cs" />
-    <Compile Include="PuertosDataSet.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>PuertosDataSet.xsd</DependentUpon>
-    </Compile>
     <Compile Include="Vistas\ActualizarCliente.xaml.cs">
       <DependentUpon>ActualizarCliente.xaml</DependentUpon>
     </Compile>
@@ -189,34 +183,12 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <None Include="finanzasdbDataSet.xsc">
-      <DependentUpon>finanzasdbDataSet.xsd</DependentUpon>
-    </None>
-    <None Include="finanzasdbDataSet.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>finanzasdbDataSet.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="finanzasdbDataSet.xss">
-      <DependentUpon>finanzasdbDataSet.xsd</DependentUpon>
-    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
     <AppDesigner Include="Properties\" />
-    <None Include="PuertosDataSet.xsc">
-      <DependentUpon>PuertosDataSet.xsd</DependentUpon>
-    </None>
-    <None Include="PuertosDataSet.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>PuertosDataSet.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="PuertosDataSet.xss">
-      <DependentUpon>PuertosDataSet.xsd</DependentUpon>
-    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

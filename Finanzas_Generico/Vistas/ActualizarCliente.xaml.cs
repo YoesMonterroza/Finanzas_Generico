@@ -75,7 +75,7 @@ namespace Finanzas_Generico.Vistas
             p.telefono = txt_Telefono.Text;
             p.estado = Convert.ToString(cb_Estado.SelectedIndex);
             p.observaciones = txt_Observaciones.Text;
-            p.usuarioModifica = 0;
+            p.usuarioModifica = int.Parse(Conexion.Utilidades.IdUsuario);
             capturarBinario = AdministrarPersona.ActualizarPersona(p);
 
             if (capturarBinario == 1)

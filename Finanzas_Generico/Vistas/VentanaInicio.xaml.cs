@@ -1,7 +1,9 @@
 ﻿using Finanzas_Generico.Entidades;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Windows;
 
@@ -124,6 +126,13 @@ namespace Finanzas_Generico.Vistas
             //JObject jsonObjet1 = (JObject)jsonObjet["productos"];
 
             //MessageBox.Show(jsonObjet1[0]["codigo"].ToString());
+        }
+
+        private void prueba2_Click(object sender, RoutedEventArgs e)
+        {
+            
+            DateTime fechaActual = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day);
+            string CapturaFecha = fechaActual.ToString("d", DateTimeFormatInfo.InvariantInfo);
         }
     }
 }

@@ -23,10 +23,11 @@ namespace Finanzas_Generico
             string pass = Utilidades.ConvertirHash(txtPassBox.Password);
             Usuario usuario = new Usuario();
             usuario = AdministrarUsuario.Consultar(user);
-            if (!usuario.id.Equals("error"))
+            if (!usuario.resultado.Equals("error"))
             {
                 if (usuario.pass.Equals(pass))
                 {
+                    Utilidades.IdUsuario = usuario.id;
                     Utilidades.Usuario = usuario.nick;
                     VentanaInicio vi = new VentanaInicio();
                     vi.ShowDialog();

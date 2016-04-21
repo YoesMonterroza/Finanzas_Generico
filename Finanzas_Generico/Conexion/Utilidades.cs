@@ -10,6 +10,7 @@ namespace Finanzas_Generico.Conexion
 {
     public class Utilidades
     {
+        public static string IdUsuario { get; set; }
         public static string Usuario { get; set; }
 
         public static string ConvertirHash(string cad)

@@ -22,16 +22,22 @@ namespace Finanzas_Generico.Vistas
         private ICollectionView IcvProductosVenta;
         private List<ListaProductoFactura> lProfact = new List<ListaProductoFactura>();
         private List<ListaProductoVenta> lProVent = new List<ListaProductoVenta>();
+        private Persona per = new Persona();
 
         public GenerarFactura()
         {
             InitializeComponent();
             this.Title = string.Format(ConfigurationManager.AppSettings["formatoTitulos"].ToString(), Conexion.Utilidades.Usuario, "Registrar venta");
-            AdministrarVenta af = new AdministrarVenta();
-            captura = af.ObtenerConsecutivo();
-            lbl_nrofactura.Content = "Codigo de factura: " + captura[1];
+            ObtenerCodigoFactura();
             LLenarTabla();
             LLenarTablaVenta();
+        }
+
+        private void ObtenerCodigoFactura()
+        {
+            AdministrarVenta av = new AdministrarVenta();
+            captura = av.ObtenerConsecutivo();
+            lbl_nrofactura.Content = "Codigo de factura: " + captura[1];
         }
 
         public void LLenarTabla()
@@ -86,7 +92,6 @@ namespace Finanzas_Generico.Vistas
         private void btn_BuscarCliente_Click(object sender, RoutedEventArgs e)
         {
             AdministrarPersona ap = new AdministrarPersona();
-            Persona per = new Persona();
             per = ap.ConsultarPersona(txt_Identificacion.Text);
 
             txt_Nombre.Text = per.nombres + " " + per.apellidos;
@@ -95,6 +100,7 @@ namespace Finanzas_Generico.Vistas
 
             if (per.nombres != null)
             {
+                per.identificacion = txt_Identificacion.Text; 
                 txt_Identificacion.IsEnabled = false;
                 btn_refrescar.IsEnabled = true;
             }
@@ -249,22 +255,29 @@ namespace Finanzas_Generico.Vistas
             int resultadoGuardar;
             int nuevaCantidadProducto;
 
+            decimal descuento;
+            decimal.TryParse(txt_Descuento.Text, out descuento);
+
             Venta vt = new Venta();
             AdministrarVenta av = new AdministrarVenta();
 
-            vt.setCodigo(captura[0]);
+            vt.setCodigo(captura[1]);
             vt.setIdentificacion(txt_Identificacion.Text);
             vt.setListaProductos(JsonConvert.SerializeObject(lProVent));
             vt.setSubTotal(decimal.Parse(txt_SubTotal.Text));
-            vt.setDescuento(decimal.Parse(txt_Descuento.Text));
+            vt.setDescuento(descuento);
             vt.setTotal(decimal.Parse(txt_Total.Text));
             vt.setTipoPago(cb_TipoPago.SelectedIndex.ToString());
+            if (cb_TipoPago.SelectedIndex == 0)
+            {
+                vt.setMontoAbono(decimal.Parse(txt_Total.Text));
+            }
             if (cb_TipoPago.SelectedIndex == 1)
             {
                 vt.setMontoAbono(decimal.Parse(txt_ValorAbono.Text));
             }
             vt.setObservacion(txt_Observaciones.Text);
-
+            vt.setUsuarioModifica(int.Parse(Conexion.Utilidades.IdUsuario));
             resultadoGuardar = av.InsertarVenta(vt);
             if (resultadoGuardar == 1)
             {
@@ -283,11 +296,50 @@ namespace Finanzas_Generico.Vistas
 
             if (cb_GenerarPdf.IsChecked.Value)
             {
+                Entidades.GenerarPdf.GenerarPdfFactura(per, lProVent, captura[1], vt);
+            }
+
+            LimpiarCampos();
+            ObtenerCodigoFactura();
+            MessageBox.Show("Venta exitosa!");
+
+            if (cb_GenerarPdf.IsChecked.Value)
+            {
+                Entidades.GenerarPdf.GenerarPdfFactura(per, lProVent, captura[1], vt);
             }
         }
 
+
+
         private void btn_Nuevo_Click(object sender, RoutedEventArgs e)
         {
+            LimpiarCampos();
+        }
+
+        private void LimpiarCampos()
+        {
+            //se borra los datos de todos los controles TextBox, CheckBox y ComboBox
+            txt_Identificacion.Text = "";
+            txt_Nombre.Text = "";
+            txt_Telefono.Text = "";
+            txt_Direccion.Text = "";
+            txt_SubTotal.Text = "";
+            txt_Descuento.Text = "";
+            txt_Total.Text = "";
+            txt_Observaciones.Text = "";
+            cb_TipoPago.SelectedIndex = -1;
+            cb_GenerarPdf.IsChecked = false;
+
+            //Se reinicia el dataGrid borrando los valores que almacena
+            dg_ListaProductosVenta.ItemsSource = null;
+            dg_ListaProductosVenta.Items.Clear();
+            lProVent.Clear();
+            LLenarTablaVenta();
+
+            //Se habilita el campo cedula cliente se deshabilita el boton limpiar cliente
+            txt_Identificacion.IsEnabled = true;
+            txt_Identificacion.Focus();
+            btn_refrescar.IsEnabled = false;
         }
     }
 }
