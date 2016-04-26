@@ -1,4 +1,5 @@
-﻿using Finanzas_Generico.Entidades;
+﻿using Finanzas_Generico.Conexion;
+using Finanzas_Generico.Entidades;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System;
@@ -18,6 +19,14 @@ namespace Finanzas_Generico.Vistas
         {
             InitializeComponent();
             this.Title = string.Format("Bienvenido {0}", Conexion.Utilidades.Usuario);
+            if (Utilidades.licencia == false)
+            {
+                this.opcVenta.Visibility = Visibility.Collapsed;
+            }
+            else
+            {
+                this.opcVenta.Visibility = Visibility.Visible;
+            }
         }
 
         private void miAgregarProducto_Click(object sender, RoutedEventArgs e)
@@ -29,7 +38,8 @@ namespace Finanzas_Generico.Vistas
 
         private void CerrarSesion_Click(object sender, RoutedEventArgs e)
         {
-            this.Hide();
+            this.DialogResult = !this.DialogResult.HasValue ? false : this.DialogResult;
+            this.Close();
         }
 
         private void miActualizarProducto_Click(object sender, RoutedEventArgs e)
@@ -130,9 +140,19 @@ namespace Finanzas_Generico.Vistas
 
         private void prueba2_Click(object sender, RoutedEventArgs e)
         {
-            
             DateTime fechaActual = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day);
             string CapturaFecha = fechaActual.ToString("d", DateTimeFormatInfo.InvariantInfo);
+        }
+
+        private void InsertarLicencia_Click(object sender, RoutedEventArgs e)
+        {
+            InsertarLicencia il = new Vistas.InsertarLicencia();
+            il.ShowDialog();
+            if (il.DialogResult == true)
+            {
+                this.DataContext = null;
+                this.DataContext = new VentanaInicio();
+            }
         }
     }
 }

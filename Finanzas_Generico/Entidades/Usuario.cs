@@ -11,6 +11,7 @@ namespace Finanzas_Generico.Entidades
         public String nivelPermiso { get; set; }
         public DateTime fechaCreacion { get; set; }
         public DateTime fechaModificacion { get; set; }
+        public DateTime? licencia { get; set; }
         public DateTime usuarioModifica { get; set; }
         public int pregunta { get; set; }
         public string Respuesta { get; set; }

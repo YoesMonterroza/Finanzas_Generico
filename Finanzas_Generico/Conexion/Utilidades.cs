@@ -12,6 +12,7 @@ namespace Finanzas_Generico.Conexion
     {
         public static string IdUsuario { get; set; }
         public static string Usuario { get; set; }
+        public static bool? licencia { get; set; }
 
         public static string ConvertirHash(string cad)
         {
@@ -30,9 +31,9 @@ namespace Finanzas_Generico.Conexion
                 cmd.CommandText = nameProcedure;
                 if (parameters != null)
                 {
-                    foreach (var i in parameters)
+                    foreach (var parameter in parameters)
                     {
-                        cmd.Parameters.AddWithValue(i.Key, i.Value);
+                        cmd.Parameters.AddWithValue(parameter.Key, parameter.Value);
                     }
                 }
 
@@ -40,6 +41,71 @@ namespace Finanzas_Generico.Conexion
                 MySqlDataReader l = cmd.ExecuteReader();
                 return l;
             }
+        }
+
+        public static string EncriptarString(string cad)
+        {
+            try
+            {
+                string key = "Arrecife"; //llave para encriptar datos
+                byte[] keyArray;
+                byte[] Arreglo_a_Cifrar = UTF8Encoding.UTF8.GetBytes(cad);
+
+                MD5CryptoServiceProvider hashmd5 = new MD5CryptoServiceProvider();
+                keyArray = hashmd5.ComputeHash(UTF8Encoding.UTF8.GetBytes(key));
+                hashmd5.Clear();
+
+                //Algoritmo TripleDES
+                TripleDESCryptoServiceProvider tdes = new TripleDESCryptoServiceProvider();
+
+                tdes.Key = keyArray;
+                tdes.Mode = CipherMode.ECB;
+                tdes.Padding = PaddingMode.PKCS7;
+
+                ICryptoTransform cTransform = tdes.CreateEncryptor();
+                byte[] ArrayResultado = cTransform.TransformFinalBlock(Arreglo_a_Cifrar, 0, Arreglo_a_Cifrar.Length);
+                tdes.Clear();
+
+                //se regresa el resultado en forma de una cadena
+                cad = Convert.ToBase64String(ArrayResultado, 0, ArrayResultado.Length);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("Error en la encriptacion de los datos\n{0}", e.Data);
+            }
+            return cad;
+        }
+
+        public static string DesEncriptarString(string cad)
+        {
+            try
+            {
+                string key = "Arrecife";
+                byte[] keyArray;
+                byte[] Array_a_Descifrar = Convert.FromBase64String(cad);
+
+                //algoritmo MD5
+                MD5CryptoServiceProvider hashmd5 = new MD5CryptoServiceProvider();
+                keyArray = hashmd5.ComputeHash(UTF8Encoding.UTF8.GetBytes(key));
+                hashmd5.Clear();
+
+                TripleDESCryptoServiceProvider tdes = new TripleDESCryptoServiceProvider();
+
+                tdes.Key = keyArray;
+                tdes.Mode = CipherMode.ECB;
+                tdes.Padding = PaddingMode.PKCS7;
+
+                ICryptoTransform cTransform = tdes.CreateDecryptor();
+                byte[] resultArray = cTransform.TransformFinalBlock(Array_a_Descifrar, 0, Array_a_Descifrar.Length);
+
+                tdes.Clear();
+                cad = UTF8Encoding.UTF8.GetString(resultArray);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("Error en la desencriptacion de los datos\n{0}", e.Data);
+            }
+            return cad;
         }
     }
 }

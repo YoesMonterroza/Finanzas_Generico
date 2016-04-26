@@ -94,6 +94,7 @@ namespace Finanzas_Generico.Manager
                     u.id = Convert.ToString(reader["id"]);
                     u.nick = Convert.ToString(reader["nick"]);
                     u.pass = Convert.ToString(reader["pass"]);
+                    u.licencia = Convert.ToDateTime(reader["fechaLicencia"]);
                     u.resultado = "ok";
                 }
             }
