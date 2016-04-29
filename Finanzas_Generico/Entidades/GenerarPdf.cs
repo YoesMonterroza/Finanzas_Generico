@@ -17,7 +17,7 @@ namespace Finanzas_Generico.Entidades
 {
     class GenerarPdf
     {
-        public static void GenerarPdfFactura(Persona per, List<ListaProductoVenta> listPv, string codigoFactura = null, Venta vt = null)
+        public static void GenerarPdfFactura(Persona per, List<ListaProductoVenta> listPv, Venta vt, string codigoFactura = null)
         {
             //Se defime la fecha actual y se formatea
             DateTime dFechaActual = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day);
@@ -205,9 +205,9 @@ namespace Finanzas_Generico.Entidades
             tblprecios.AddCell(descuento);
             tblprecios.AddCell(total);
 
-            decimal dSubtotal = vt.SubTotal();
-            decimal dDescuento = vt.Descuento();
-            decimal dTotal = vt.Total();
+            decimal dSubtotal = vt.subTotal;
+            decimal dDescuento = vt.descuento;
+            decimal dTotal = vt.total;
 
             subTotal = new PdfPCell(new Phrase(dSubtotal.ToString(), _standardFont));
             subTotal.BorderWidth = 0;
@@ -237,7 +237,7 @@ namespace Finanzas_Generico.Entidades
             // Añadimos las celdas a la tabla
             tblObservaciones.AddCell(observacion);
 
-            observacion = new PdfPCell(new Phrase(vt.Observacion(), _standardFont));
+            observacion = new PdfPCell(new Phrase(vt.observacion, _standardFont));
             observacion.BorderWidth = 0;
 
             tblObservaciones.AddCell(observacion);

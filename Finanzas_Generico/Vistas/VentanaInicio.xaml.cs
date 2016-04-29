@@ -154,5 +154,12 @@ namespace Finanzas_Generico.Vistas
                 this.DataContext = new VentanaInicio();
             }
         }
+
+        private void miConsultarFactura_Click(object sender, RoutedEventArgs e)
+        {
+            ConsultarVentas cv = new ConsultarVentas();
+            cv.Owner = this;
+            cv.ShowDialog();
+        }
     }
 }

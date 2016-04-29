@@ -7,7 +7,12 @@
         mc:Ignorable="d"
         Title="" Height="500" Width="500" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" Icon="/Finanzas_Generico;component/Imagenes/Iconos/IconoLibro1.png">
     <Grid>
-        <Menu Height="25" Margin="0,0,0,445">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="252*"/>
+            <ColumnDefinition Width="87*"/>
+            <ColumnDefinition Width="155*"/>
+        </Grid.ColumnDefinitions>
+        <Menu Height="25" Margin="0,1,0,446" Grid.ColumnSpan="3">
             <MenuItem Header="Producto">
                 <MenuItem Header="Ingresar" Name="miAgregarProducto" Click="miAgregarProducto_Click"></MenuItem>
                 <MenuItem Header="Actualizar" Name="miActualizarProducto" Click="miActualizarProducto_Click"></MenuItem>
@@ -20,8 +25,9 @@
             </MenuItem>
             <MenuItem Name="opcVenta" Header="Venta" VerticalAlignment="Top">
                 <MenuItem Header="Generar Venta" Name="miGenerarFactura" Click="miGenerarFactura_Click"></MenuItem>
-                <MenuItem Header="Consultar Factura" Name="miConsultarFactura"></MenuItem>
+                <MenuItem Header="Consultar Venta" Name="miConsultarFactura" Click="miConsultarFactura_Click"></MenuItem>
                 <MenuItem Header="Generar Abonos" Name="miGenerarAbono"></MenuItem>
+                <MenuItem Header="Consultar Abonos" Name="miConsultarAbono"></MenuItem>
                 <MenuItem Header="Estado Cuenta" Name="miEstadoCuenta"></MenuItem>
             </MenuItem>
             <MenuItem Header="Opciones">
@@ -29,8 +35,8 @@
                 <MenuItem x:Name="CerrarSesion" Header="Cerrar sesión" Click="CerrarSesion_Click"></MenuItem>
             </MenuItem>
         </Menu>
-        <Label x:Name="lblNombre" Content="Luna Turqueza" HorizontalAlignment="Left" Margin="86,44,0,0" VerticalAlignment="Top" FontFamily="Script MT Bold" FontSize="48" Foreground="#FF1D59B0" />
+        <Label x:Name="lblNombre" Content="Luna Turqueza" HorizontalAlignment="Left" Margin="86,44,0,0" VerticalAlignment="Top" FontFamily="Script MT Bold" FontSize="48" Foreground="#FF1D59B0" Grid.ColumnSpan="3" />
         <Button x:Name="btnPrueba" Content="prueba" HorizontalAlignment="Left" Margin="165,138,0,0" VerticalAlignment="Top" Width="75" Click="btnPrueba_Click" IsHitTestVisible="True" />
-        <Button x:Name="prueba2" Content="Button" HorizontalAlignment="Left" Margin="314,138,0,0" VerticalAlignment="Top" Width="75" Click="prueba2_Click" />
+        <Button x:Name="prueba2" Content="Button" HorizontalAlignment="Left" Margin="62,138,0,0" VerticalAlignment="Top" Width="75" Click="prueba2_Click" Grid.Column="1" Grid.ColumnSpan="2" />
     </Grid>
 </Window>
