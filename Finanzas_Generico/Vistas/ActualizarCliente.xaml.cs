@@ -26,6 +26,7 @@ namespace Finanzas_Generico.Vistas
             Persona person = new Persona();
             person = ap.ConsultarPersona(IdCliente);
 
+            txt_Identificacion.Text = IdCliente;
             txt_Nombres.Text = person.nombres;
             txt_Apellidos.Text = person.apellidos;
             txt_Direccion.Text = person.direccion;

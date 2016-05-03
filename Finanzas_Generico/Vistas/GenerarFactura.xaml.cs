@@ -262,23 +262,23 @@ namespace Finanzas_Generico.Vistas
             Venta vt = new Venta();
             AdministrarVenta av = new AdministrarVenta();
 
-            vt.setCodigo(captura[1]);
-            vt.setIdentificacion(txt_Identificacion.Text);
-            vt.setListaProductos(JsonConvert.SerializeObject(lProVent));
-            vt.setSubTotal(decimal.Parse(txt_SubTotal.Text));
-            vt.setDescuento(descuento);
-            vt.setTotal(decimal.Parse(txt_Total.Text));
-            vt.setTipoPago(cb_TipoPago.SelectedIndex.ToString());
+            vt.codigo = captura[1];
+            vt.identCliente = txt_Identificacion.Text;
+            vt.listaProductos = JsonConvert.SerializeObject(lProVent);
+            vt.subTotal = decimal.Parse(txt_SubTotal.Text);
+            vt.descuento = descuento;
+            vt.total = decimal.Parse(txt_Total.Text);
+            vt.tipoPago = cb_TipoPago.SelectedIndex.ToString();
             if (cb_TipoPago.SelectedIndex == 0)
             {
-                vt.setMontoAbono(decimal.Parse(txt_Total.Text));
+                vt.montoAbono = decimal.Parse(txt_Total.Text);
             }
             if (cb_TipoPago.SelectedIndex == 1)
             {
-                vt.setMontoAbono(decimal.Parse(txt_ValorAbono.Text));
+                vt.montoAbono = decimal.Parse(txt_ValorAbono.Text);
             }
-            vt.setObservacion(txt_Observaciones.Text);
-            vt.setUsuarioModifica(int.Parse(Conexion.Utilidades.IdUsuario));
+            vt.observacion = txt_Observaciones.Text;
+            vt.usuarioModifica = int.Parse(Conexion.Utilidades.IdUsuario);
             resultadoGuardar = av.InsertarVenta(vt);
             if (resultadoGuardar == 1)
             {
@@ -297,7 +297,7 @@ namespace Finanzas_Generico.Vistas
 
             if (cb_GenerarPdf.IsChecked.Value)
             {
-                Entidades.GenerarPdf.GenerarPdfFactura(per, lProVent, captura[1], vt);
+                Entidades.GenerarPdf.GenerarPdfFactura(per, lProVent, vt, captura[1]);
             }
 
             LimpiarCampos();
@@ -307,7 +307,7 @@ namespace Finanzas_Generico.Vistas
 
             if (cb_GenerarPdf.IsChecked.Value)
             {
-                Entidades.GenerarPdf.GenerarPdfFactura(per, lProVent, captura[1], vt);
+                Entidades.GenerarPdf.GenerarPdfFactura(per, lProVent, vt, captura[1]);
             }
         }
 

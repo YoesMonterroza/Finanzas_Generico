@@ -101,16 +101,16 @@ namespace Finanzas_Generico.Manager
                     cmd.CommandText = "SpVentaInsertar";
 
                     //asignar paramentros
-                    cmd.Parameters.AddWithValue("p_consecutivo", vt.Codigo());
-                    cmd.Parameters.AddWithValue("p_identificacion_cliente", vt.Identificacion());
-                    cmd.Parameters.AddWithValue("p_json_productos", vt.ListaProductos());
-                    cmd.Parameters.AddWithValue("p_sub_Total", vt.SubTotal());
-                    cmd.Parameters.AddWithValue("p_descuento", vt.Descuento());
-                    cmd.Parameters.AddWithValue("p_total", vt.Total());
-                    cmd.Parameters.AddWithValue("P_tipoPago", vt.TipoPago());
-                    cmd.Parameters.AddWithValue("p_montoAbono", vt.MontoAbono());
-                    cmd.Parameters.AddWithValue("p_observacion", vt.Observacion());
-                    cmd.Parameters.AddWithValue("p_UsuarioModifica", vt.UsuarioModifica());
+                    cmd.Parameters.AddWithValue("p_consecutivo", vt.codigo);
+                    cmd.Parameters.AddWithValue("p_identificacion_cliente", vt.identCliente);
+                    cmd.Parameters.AddWithValue("p_json_productos", vt.listaProductos);
+                    cmd.Parameters.AddWithValue("p_sub_Total", vt.subTotal);
+                    cmd.Parameters.AddWithValue("p_descuento", vt.descuento);
+                    cmd.Parameters.AddWithValue("p_total", vt.total);
+                    cmd.Parameters.AddWithValue("P_tipoPago", vt.tipoPago);
+                    cmd.Parameters.AddWithValue("p_montoAbono", vt.montoAbono);
+                    cmd.Parameters.AddWithValue("p_observacion", vt.observacion);
+                    cmd.Parameters.AddWithValue("p_UsuarioModifica", vt.usuarioModifica);
 
                     //abrir la conexion
                     ConexionDB.Conexion().Open();

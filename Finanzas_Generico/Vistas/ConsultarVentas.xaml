@@ -5,13 +5,26 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Finanzas_Generico.Vistas"
         mc:Ignorable="d"
-        Title="ConsultarVentas" Height="500" Width="600">
+        Title="Consultar Ventas" Height="400" Width="600" ResizeMode="NoResize" Icon="/Finanzas_Generico;component/Imagenes/Iconos/IconoLibro1.png" WindowStartupLocation="CenterOwner">
     <Grid>
-        <TextBox x:Name="txt_Identificacion" HorizontalAlignment="Left" Height="23" Margin="111,12,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="174*"/>
+            <ColumnDefinition Width="181*"/>
+            <ColumnDefinition Width="58*"/>
+            <ColumnDefinition Width="26*"/>
+            <ColumnDefinition Width="155*"/>
+        </Grid.ColumnDefinitions>
+        <TextBox x:Name="txt_Identificacion" HorizontalAlignment="Left" Height="23" Margin="111,12,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" Grid.ColumnSpan="2"/>
         <Label x:Name="lbl_Identificacion" Content="Identificación" HorizontalAlignment="Left" Margin="25,11,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.421,0.568"/>
-        <Button x:Name="btn_Buscar" Content="Buscar" HorizontalAlignment="Left" Margin="252,12,0,0" VerticalAlignment="Top" Width="75"/>
-        <Button x:Name="btn_Ver" Content="Ver" HorizontalAlignment="Left" Margin="465,11,0,0" VerticalAlignment="Top" Width="75"/>
-        <DataGrid x:Name="dataGrid" HorizontalAlignment="Left" Margin="25,58,0,0" VerticalAlignment="Top" Height="162" Width="515"/>
-
+        <Button x:Name="btn_Buscar" Content="Buscar" HorizontalAlignment="Left" Margin="78,12,0,0" VerticalAlignment="Top" Width="75" Click="btn_Buscar_Click" Grid.Column="1"/>
+        <Button x:Name="btn_GenerarPDF" Content="Generar PDF" HorizontalAlignment="Left" Margin="14,298,0,0" VerticalAlignment="Top" Width="75" Grid.Column="2" Grid.ColumnSpan="3" Click="btn_GenerarPDF_Click"/>
+        <DataGrid x:Name="dg_ListVentCliente" HorizontalAlignment="Left" Margin="25,121,0,0" VerticalAlignment="Top" Height="162" Width="515" Grid.ColumnSpan="5"/>
+        <Label x:Name="label" Content="Nombre" HorizontalAlignment="Left" Margin="25,51,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="label1" Content="Telefono" Grid.Column="1" HorizontalAlignment="Left" Margin="173,54,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2" RenderTransformOrigin="0.554,-0.808"/>
+        <Label x:Name="label2" Content="Dirección" HorizontalAlignment="Left" Margin="25,82,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="txt_nombres" Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="23" Margin="93,54,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="234" IsEnabled="False"/>
+        <TextBox x:Name="txt_telefono" Grid.Column="2" HorizontalAlignment="Left" Height="23" Margin="48,54,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="143" Grid.ColumnSpan="3" IsEnabled="False"/>
+        <TextBox x:Name="txt_direccion" Grid.ColumnSpan="5" HorizontalAlignment="Left" Height="23" Margin="93,82,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="447" IsEnabled="False"/>
+        <Button x:Name="btn_salir" Content="Salir" Grid.Column="4" HorizontalAlignment="Right" Margin="0,298,54,0" VerticalAlignment="Top" Width="75" Click="btn_salir_Click"/>
     </Grid>
 </Window>
