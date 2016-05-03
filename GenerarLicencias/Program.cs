@@ -7,7 +7,7 @@ namespace GenerarLicencias
     {
         private static void Main(string[] args)
         {
-            string cadena = Utilidades.EncriptarString(string.Format("Arrecife {0}", DateTime.Now.AddMonths(2)));
+            string cadena = Utilidades.EncriptarString(string.Format("Arrecife {0}", DateTime.Now.AddMonths(1)));
             Console.WriteLine(cadena);
             Console.ReadLine();
         }
