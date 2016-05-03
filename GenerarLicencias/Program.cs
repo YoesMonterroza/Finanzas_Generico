@@ -1,9 +1,5 @@
 ﻿using Finanzas_Generico.Conexion;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace GenerarLicencias
 {
@@ -11,7 +7,7 @@ namespace GenerarLicencias
     {
         private static void Main(string[] args)
         {
-            string cadena = Utilidades.EncriptarString(string.Format("Arrecife {0}", DateTime.Now.AddDays(1)));
+            string cadena = Utilidades.EncriptarString(string.Format("Arrecife {0}", DateTime.Now.AddMonths(2)));
             Console.WriteLine(cadena);
             Console.ReadLine();
         }
