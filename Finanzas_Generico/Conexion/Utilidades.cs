@@ -14,6 +14,10 @@ namespace Finanzas_Generico.Conexion
         public static string Usuario { get; set; }
         public static bool? licencia { get; set; }
 
+        /// <summary>
+        /// Metodo que convierte una cadena en un SHA1 y luego a un string de base64
+        /// </summary>
+        /// <param name="cad">cadena de entrada que sera convertida por el metodo</param>
         public static string ConvertirHash(string cad)
         {
             SHA1 sha1 = new SHA1CryptoServiceProvider();
@@ -22,6 +26,13 @@ namespace Finanzas_Generico.Conexion
             return Convert.ToBase64String(hash);
         }
 
+        /// <summary>
+        /// Metodo para hacer consultas a la base de datos de una manera generica
+        /// </summary>
+        /// <param name="nameProcedure">string con el nombre del procedimiento almacenado a ejecutar</param>
+        /// <param name="parameters">diccionario de strings en el que se pueden colocar los parametros de
+        ///         entrada para el procedimiento a ejecutar</param>
+        /// <returns>un MySqlDataReader</returns>
         public static MySqlDataReader Consulta(string nameProcedure, Dictionary<string, string> parameters = null)
         {
             using (MySqlCommand cmd = new MySqlCommand())
@@ -43,6 +54,11 @@ namespace Finanzas_Generico.Conexion
             }
         }
 
+        /// <summary>
+        /// metodo para hacer una encriptacion de una cadena, se usa para crear las licencias
+        /// </summary>
+        /// <param name="cad">string que sera encriptado</param>
+        /// <returns>cadena encriptada</returns>
         public static string EncriptarString(string cad)
         {
             try
@@ -76,6 +92,11 @@ namespace Finanzas_Generico.Conexion
             return cad;
         }
 
+        /// <summary>
+        /// metodo para deshacer la encriptacion hecha por el metodo EncriptarString
+        /// </summary>
+        /// <param name="cad">string encriptado</param>
+        /// <returns>cadena desencriptada</returns>
         public static string DesEncriptarString(string cad)
         {
             try

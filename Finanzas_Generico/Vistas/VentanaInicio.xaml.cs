@@ -15,9 +15,13 @@ namespace Finanzas_Generico.Vistas
     /// </summary>
     public partial class VentanaInicio : Window
     {
-        public VentanaInicio()
+        private string mensaje = string.Empty;
+
+        public VentanaInicio(string mensaje)
         {
             InitializeComponent();
+            this.mensaje = mensaje;
+            lblMensaje.Content = mensaje;
             this.Title = string.Format("Bienvenido {0}", Conexion.Utilidades.Usuario);
             if (Utilidades.licencia == false)
             {
@@ -152,7 +156,7 @@ namespace Finanzas_Generico.Vistas
             if (il.DialogResult == true)
             {
                 this.DataContext = null;
-                this.DataContext = new VentanaInicio();
+                this.DataContext = new VentanaInicio(this.mensaje);
             }
         }
 
