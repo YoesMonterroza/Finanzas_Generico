@@ -31,6 +31,9 @@ namespace Finanzas_Generico.Vistas
             {
                 this.opcVenta.Visibility = Visibility.Visible;
             }
+
+            btnPrueba.Visibility = Visibility.Hidden;
+            prueba2.Visibility = Visibility.Hidden;
         }
 
         private void miAgregarProducto_Click(object sender, RoutedEventArgs e)
