@@ -32,6 +32,8 @@ namespace Finanzas_Generico.Vistas
                 this.opcVenta.Visibility = Visibility.Visible;
             }
 
+            //btnPrueba.Visibility = Visibility.Visible;
+            //prueba2.Visibility = Visibility.Visible;
             btnPrueba.Visibility = Visibility.Hidden;
             prueba2.Visibility = Visibility.Hidden;
         }
