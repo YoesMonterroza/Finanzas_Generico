@@ -142,6 +142,7 @@ namespace Finanzas_Generico.Vistas
         {
             DateTime fechaActual = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day);
             string CapturaFecha = fechaActual.ToString("d", DateTimeFormatInfo.InvariantInfo);
+            MessageBox.Show(""+ Environment.UserName);
         }
 
         private void InsertarLicencia_Click(object sender, RoutedEventArgs e)

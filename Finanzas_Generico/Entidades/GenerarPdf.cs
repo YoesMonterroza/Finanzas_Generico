@@ -12,22 +12,48 @@ using iTextSharp.text.pdf;
 using System.Windows;
 using System.Diagnostics;
 using System.Globalization;
+using System.Security.Permissions;
 
 namespace Finanzas_Generico.Entidades
 {
-    class GenerarPdf
+    abstract class GenerarPdf
     {
+        //[FileIOPermission(SecurityAction.Demand, Write = @"C:\FinanazaGenerico\PDF")]
         public static void GenerarPdfFactura(Persona per, List<ListaProductoVenta> listPv, Venta vt, string codigoFactura = null)
         {
             //Se defime la fecha actual y se formatea
             DateTime dFechaActual = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day);
             string sCapturaFecha = dFechaActual.ToString("d", DateTimeFormatInfo.InvariantInfo);
+            string userWindows = Environment.UserName;
+            string path = @"C:\Users\"+ userWindows +@"\Documents\FinanazaGenerico\PDF";
+            //string path = @"D:";
+            //string path = Path.GetTempPath();
+            //FileIOPermission f1 = new FileIOPermission(FileIOPermissionAccess.Read, path);
+            //FileIOPermission f2 = new FileIOPermission(FileIOPermissionAccess.Write, path);
 
+            //f1.Demand();
+            //f2.Demand();
             // Creamos el documento con el tamaño de página tradicional
             Document doc = new Document(PageSize.LETTER);
             // Indicamos donde vamos a guardar el documento
+            try
+            {
+                if (!Directory.Exists(path))
+                {
+                    DirectoryInfo di = Directory.CreateDirectory(path);
+                }
+            }
+            catch (UnauthorizedAccessException)
+            {
+                throw;
+            }
+
+            //PdfWriter writer = PdfWriter.GetInstance(doc,
+            //                            new FileStream(@"D:\prueba.pdf", FileMode.Create));
+
             PdfWriter writer = PdfWriter.GetInstance(doc,
-                                        new FileStream(@"D:\prueba.pdf", FileMode.Create));
+                                        new FileStream(@"C:\Users\"+ userWindows +@"\Documents\FinanazaGenerico\PDF\prueba.pdf", FileMode.Create));
+
 
             // Le colocamos el título y el autor
             // **Nota: Esto no será visible en el documento
@@ -246,13 +272,27 @@ namespace Finanzas_Generico.Entidades
             #endregion
             doc.Close();
             writer.Close();
-                        
+
             System.Diagnostics.Process proc = new System.Diagnostics.Process();
-            proc.StartInfo.FileName = "D:\\prueba.pdf";
+            //C:\Users\Monterroza\Documents\FinanazaFenerico\PDF
+            //proc.StartInfo.FileName = "D:\\prueba.pdf";
+            //try
+            //{
+            //    if (Directory.Exists(path))
+            //    {
+            //        proc.StartInfo.FileName = path + "\\prueba.pdf";
+            //    }
+            //}
+            //catch (UnauthorizedAccessException)
+            //{
+            //    throw;
+            //}
+
+            proc.StartInfo.FileName = @"C:\Users\"+ userWindows +@"\Documents\FinanazaGenerico\PDF\prueba.pdf";
             proc.Start();
             proc.Close();
 
         }
-        
+
     }
 }
